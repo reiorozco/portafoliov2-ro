@@ -4,7 +4,7 @@ const GlowCard = ({ card, index, children }) => {
   // refs for all the cards
   const cardRefs = useRef([]);
 
-  // when mouse moves over a card, rotate the glow effect
+  // when the mouse moves over a card, rotate the glow effect
   const handleMouseMove = (index) => (e) => {
     // get the current card
     const card = cardRefs.current[index];
@@ -38,6 +38,7 @@ const GlowCard = ({ card, index, children }) => {
           <img key={i} src="/images/star.png" alt="star" className="size-5" />
         ))}
       </div>
+
       <div className="mb-5">
         <p className="text-white-50 text-lg">{card.review}</p>
       </div>
