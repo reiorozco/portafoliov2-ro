@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 const Particles = ({ count = 200 }) => {
@@ -50,7 +50,7 @@ const Particles = ({ count = 200 }) => {
       <pointsMaterial
         color="#ffffff"
         size={0.05}
-        transparent
+        transparent={true}
         opacity={0.9}
         depthWrite={false}
       />
