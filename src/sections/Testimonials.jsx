@@ -1,6 +1,6 @@
-import { testimonials } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
+import { testimonials } from "../constants";
 
 const Testimonials = () => {
   return (
@@ -18,6 +18,7 @@ const Testimonials = () => {
                 <div>
                   <img src={testimonial.imgPath} alt="" />
                 </div>
+
                 <div>
                   <p className="font-bold">{testimonial.name}</p>
                   <p className="text-white-50">{testimonial.mentions}</p>
