@@ -91,12 +91,20 @@ const abilities = [
 
 const techStackImgs = [
   {
+    name: "TypeScript",
+    imgPath: "/images/logos/typescript.png",
+  },
+  {
     name: "React Developer",
     imgPath: "/images/logos/react.png",
   },
   {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
+    name: "Tailwind CSS",
+    imgPath: "/images/logos/tailwindcss.png",
+  },
+  {
+    name: "Next.js Developer",
+    imgPath: "/images/logos/nextjs.png",
   },
   {
     name: "Backend Developer",
