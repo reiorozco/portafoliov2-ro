@@ -16,7 +16,7 @@ const AnimatedCounter = () => {
       const numberElement = counter.querySelector(".counter-number");
       const item = counterItems[index];
 
-      // Set initial value to 0
+      // Set the initial value to 0
       gsap.set(numberElement, { innerText: "0" });
 
       // Create the counting animation
