@@ -18,7 +18,7 @@ const NavBar = () => {
     // add the event listener to the window
     window.addEventListener("scroll", handleScroll);
 
-    // cleanup the event listener when the component is unmounted
+    // clean up the event listener when the component is unmounted
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -26,7 +26,7 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a href="#hero" className="logo">
-          Adrian JSM
+          Rei Orozco
         </a>
 
         <nav className="desktop">
@@ -50,6 +50,6 @@ const NavBar = () => {
       </div>
     </header>
   );
-}
+};
 
 export default NavBar;
