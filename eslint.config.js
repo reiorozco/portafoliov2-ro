@@ -30,6 +30,6 @@ export default [
         { allowConstantExport: true },
       ],
     },
-    eslintConfigPrettier,
   },
+  eslintConfigPrettier,
 ];

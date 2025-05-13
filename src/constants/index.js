@@ -74,18 +74,18 @@ const logoIconsList = [
 const abilities = [
   {
     imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    title: "Clean & Scalable Code",
+    desc: "I write maintainable, scalable code using modern best practices to ensure long-term project health.",
   },
   {
     imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    title: "Team Collaboration",
+    desc: "I thrive in collaborative environments, contributing ideas and mentoring teammates when needed.",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "Continuous Learning",
+    desc: "Always improving through courses, certifications, and hands-on experimentation with new technologies.",
   },
 ];
 
