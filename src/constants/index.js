@@ -272,6 +272,7 @@ const socialImgs = [
   {
     name: "insta",
     imgPath: "/images/insta.png",
+    url: "https://www.instagram.com/orozcorei",
   },
   {
     name: "fb",
@@ -284,6 +285,7 @@ const socialImgs = [
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
+    url: "https://www.linkedin.com/in/reiorozco",
   },
 ];
 
