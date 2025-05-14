@@ -53,7 +53,7 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={kranioRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Kranio Project" />
+              <img src="/images/project1.0.png" alt="Kranio Project" />
             </div>
             <div className="text-content">
               <h2>Internal Logistics Platform for Blue Express</h2>
@@ -69,7 +69,7 @@ const AppShowcase = () => {
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={gameHubRef}>
               <div className="image-wrapper bg-[#FFEFDB]">
-                <img src="/images/project2.png" alt="GameHub Project" />
+                <img src="/images/project1.1.png" alt="GameHub Project" />
               </div>
               <h2>GameHub – Video Game Discovery App</h2>
               <p className="text-white-50 md:text-sm">
@@ -81,7 +81,7 @@ const AppShowcase = () => {
 
             <div className="project" ref={amazonCloneRef}>
               <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="Amazone Clone App" />
+                <img src="/images/project1.2.png" alt="Amazone Clone App" />
               </div>
               <h2>Amazon Clone – E-commerce Platform</h2>
               <p className="text-white-50 md:text-sm">

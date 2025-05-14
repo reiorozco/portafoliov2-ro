@@ -99,6 +99,10 @@ const techStackImgs = [
     imgPath: "/images/logos/react.png",
   },
   {
+    name: "Mobile App Developer",
+    imgPath: "/images/logos/react-native.svg",
+  },
+  {
     name: "Tailwind CSS",
     imgPath: "/images/logos/tailwindcss.png",
   },
@@ -157,8 +161,8 @@ const expCards = [
   {
     review:
       "Reinaldo took ownership of key frontend components and helped improve the performance and scalability of our internal logistics platform. His technical contributions were key to our team's success.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
+    imgPath: "/images/exp1.0.png",
+    logoPath: "/images/logo1.0.png",
     title: "Software Developer",
     date: "May 2022 – March 2025",
     responsibilities: [
@@ -170,8 +174,8 @@ const expCards = [
   {
     review:
       "Reinaldo's work on our mobile app improved user experience and reliability. His ability to build cross-platform features made a real difference for the product.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
+    // imgPath: "/images/exp2.png",
+    logoPath: "/images/logo1.2.svg",
     title: "React Native Developer (Freelance)",
     date: "Nov 2023 – June 2024",
     responsibilities: [
@@ -183,8 +187,8 @@ const expCards = [
   {
     review:
       "Reinaldo’s attention to detail and ability to translate design into responsive code significantly enhanced our clients’ web presence.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+    imgPath: "/images/exp1.3.png",
+    logoPath: "/images/logo1.3.png",
     title: "Frontend Web Developer",
     date: "June 2021 – May 2022",
     responsibilities: [
@@ -196,8 +200,8 @@ const expCards = [
   {
     review:
       "Reinaldo showed great commitment to mentoring junior developers. He encouraged collaboration and shared best practices with clarity and empathy.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+    imgPath: "/images/exp1.4.png",
+    logoPath: "/images/logo1.4.jpg",
     title: "Full-Stack Teaching Assistant",
     date: "Jan 2022 – Apr 2022",
     responsibilities: [
