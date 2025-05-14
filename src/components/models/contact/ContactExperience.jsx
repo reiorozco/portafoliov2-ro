@@ -12,7 +12,7 @@ const ContactExperience = () => {
 
       <directionalLight
         position={[5, 9, 1]}
-        castShadow
+        castShadow={true}
         intensity={2.5}
         color="#ffd9b3"
       />
@@ -25,7 +25,7 @@ const ContactExperience = () => {
 
       <group scale={[1, 1, 1]}>
         <mesh
-          receiveShadow
+          receiveShadow={true}
           position={[0, -1.5, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
@@ -34,7 +34,7 @@ const ContactExperience = () => {
         </mesh>
       </group>
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow>
+      <group scale={0.03} position={[0, -1.49, -2]} castShadow={true}>
         <Computer />
       </group>
     </Canvas>
