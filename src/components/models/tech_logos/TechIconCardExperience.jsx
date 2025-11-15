@@ -1,22 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import * as THREE from "three";
+import { MeshStandardMaterial } from "three";
 
 const TechIconCardExperience = ({ model }) => {
   const scene = useGLTF(model.modelPath);
 
+  // Memoize white material for Interactive Developer
+  const whiteMaterial = useMemo(() =>
+    new MeshStandardMaterial({ color: "white" }),
+    []
+  );
+
   useEffect(() => {
     if (model.name === "Interactive Developer") {
+      let oldMaterial = null;
       scene.scene.traverse((child) => {
-        if (child.isMesh) {
-          if (child.name === "Object_5") {
-            child.material = new THREE.MeshStandardMaterial({ color: "white" });
-          }
+        if (child.isMesh && child.name === "Object_5") {
+          oldMaterial = child.material;
+          child.material = whiteMaterial;
         }
       });
+
+      // Cleanup: restore original material on unmount
+      return () => {
+        if (oldMaterial) {
+          scene.scene.traverse((child) => {
+            if (child.isMesh && child.name === "Object_5") {
+              child.material = oldMaterial;
+            }
+          });
+        }
+      };
     }
-  }, [scene]);
+  }, [scene, model.name, whiteMaterial]);
 
   return (
     <Canvas>
