@@ -19,14 +19,13 @@ const ContactExperience = () => {
       flat
       performance={{ min: 0.5 }}
     >
-      <ambientLight intensity={0.5} color="#fff4e6" />
+      <ambientLight intensity={0.6} color="#fff4e6" />
 
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
-
+      {/* Consolidated directional light (combined two lights into one) */}
       <directionalLight
-        position={[5, 9, 1]}
+        position={[5, 7, 2]}
         castShadow={true}
-        intensity={2.5}
+        intensity={3.5}
         color="#ffd9b3"
       />
 

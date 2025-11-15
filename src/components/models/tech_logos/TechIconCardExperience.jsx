@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
+import { Float, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { MeshStandardMaterial } from "three";
 
@@ -46,15 +46,9 @@ const TechIconCardExperience = ({ model }) => {
       flat
       performance={{ min: 0.5 }}
     >
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[5, 5, 5]} intensity={1} />
-      <spotLight
-        position={[10, 15, 10]}
-        angle={0.3}
-        penumbra={1}
-        intensity={2}
-      />
-      <Environment preset="city" />
+      <ambientLight intensity={0.5} />
+      {/* Consolidated lighting (removed Environment HDRI for better performance) */}
+      <directionalLight position={[8, 10, 8]} intensity={2.5} />
 
       {/* 
         The Float component from @react-three/drei is used to 
