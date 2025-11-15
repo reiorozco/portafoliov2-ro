@@ -111,7 +111,7 @@ const Experience = () => {
                         <img
                           src={card.imgPath}
                           className="object-center"
-                          alt="exp-img"
+                          alt={card.imgAlt}
                         />
                       </div>
                     )}
@@ -127,7 +127,7 @@ const Experience = () => {
 
                     <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
                       <div className="timeline-logo">
-                        <img src={card.logoPath} alt="logo" />
+                        <img src={card.logoPath} alt={card.logoAlt} />
                       </div>
 
                       <div>

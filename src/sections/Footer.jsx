@@ -20,7 +20,7 @@ const Footer = () => {
             >
               <img
                 src={socialImg.imgPath}
-                alt={`${socialImg.name} social media icon`}
+                alt={socialImg.alt}
               />
             </a>
           ))}

@@ -84,7 +84,7 @@ const TechStack = () => {
                   <img
                     src={techStackIcon.imgPath}
                     className="h-44 w-44"
-                    alt=""
+                    alt={techStackIcon.alt}
                   />
                 </div>
 
