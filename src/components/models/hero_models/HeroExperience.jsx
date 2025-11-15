@@ -1,7 +1,9 @@
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
 
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
@@ -11,6 +13,7 @@ import CanvasLoader from "../../CanvasLoader";
 const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const screensRef = useRef();
 
   return (
     <Canvas
@@ -45,9 +48,20 @@ const HeroExperience = () => {
           position={[0, -3.5, 0]}
           rotation={[0, -Math.PI / 4, 0]}
         >
-          <Room />
+          <Room ref={screensRef} />
         </group>
       </Suspense>
+
+      {/* Post-processing effects at Canvas level (correct architecture) */}
+      <EffectComposer>
+        <SelectiveBloom
+          selection={screensRef}
+          intensity={1.5} // Strength of the bloom
+          luminanceThreshold={0.2} // Minimum luminance needed
+          luminanceSmoothing={0.9} // Smooth transition
+          blendFunction={BlendFunction.ADD} // How it blends
+        />
+      </EffectComposer>
     </Canvas>
   );
 };
