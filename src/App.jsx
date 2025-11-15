@@ -9,6 +9,9 @@ import ShowcaseSection from "./sections/ShowcaseSection";
 import TechStack from "./sections/TechStack";
 // import Testimonials from "./sections/Testimonials";
 
+// Preload all 3D models for faster loading
+import "./utils/preloadAssets";
+
 const App = () => (
   <>
     <Navbar />
