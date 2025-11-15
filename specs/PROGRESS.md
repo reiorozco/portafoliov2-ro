@@ -1,7 +1,7 @@
 # 📊 Progress Tracker
 
-**Última actualización:** 2025-01-15 (Sesión 4)
-**Progreso total:** 54% (19/35 tareas completadas)
+**Última actualización:** 2025-01-15 (Sesión 4 - Validada)
+**Progreso total:** 48% (17/35 tareas completadas)
 
 ---
 
@@ -11,7 +11,7 @@
 [██████████] 100%  FASE 1: Optimizaciones Críticas     (6/6) ✅
 [██████████] 100%  FASE 2: Accesibilidad y UX          (5/5) ✅
 [██████████] 100%  FASE 3: Code Splitting              (3/3) ✅
-[██████████] 100%  FASE 4: Optimización 3D             (5/5) ✅
+[██████░░░░]  60%  FASE 4: Optimización 3D             (3/5) ⚠️
 [░░░░░░░░░░]   0%  FASE 5: GSAP y Animaciones          (0/2)
 [░░░░░░░░░░]   0%  FASE 6: Calidad de Código           (0/6)
 ```
@@ -88,14 +88,14 @@
 
 ## 🎮 FASE 4: Optimización 3D Avanzada
 
-**Estado:** ✅ COMPLETADA
-**Progreso:** 5/5 (100%)
+**Estado:** ⚠️ PARCIAL (3/5 completadas, 2 revertidas)
+**Progreso:** 3/5 (60%)
 
 ### Tareas
 - [x] 4.1 Configurar performance del Canvas (dpr, gl) ✅
-- [x] 4.2 Reducir iluminación (de 7 a 3 luces) ✅
-- [x] 4.3 Mover EffectComposer al nivel correcto ✅
-- [x] 4.4 Implementar Draco compression en modelos ✅
+- [x] 4.2 Reducir iluminación (de 14 a 7 luces) ✅
+- [x] 4.3 ~~Mover EffectComposer al nivel correcto~~ ❌ REVERTIDA
+- [x] 4.4 ~~Implementar Draco compression en modelos~~ ❌ REVERTIDA
 - [x] 4.5 Decisión arquitectónica: 2 Canvas óptimos ✅
 
 ### Métricas
@@ -334,43 +334,72 @@
 - La optimización de imágenes reducirá drásticamente el tiempo de carga inicial de la página
 - El Intersection Observer asegura que las imágenes solo se cargan cuando están por aparecer en viewport
 
-### 2025-01-15 - Sesión 4: FASE 4 Completada ✅
+### 2025-01-15 - Sesión 4: FASE 4 Parcial ⚠️ + Validación con Playwright
 
-**Completado:**
-- ✅ **FASE 4 COMPLETADA (5/5):**
-  - Canvas performance configurado (dpr adaptativo, gl high-performance, flat color management)
-  - EffectComposer movido al nivel correcto (Canvas level en HeroExperience.jsx)
-  - Iluminación optimizada: 14+ luces → 7 luces (50% reducción)
-    - Hero: 7 → 3 luces (consolidado SpotLights, removido RectAreaLight y PointLights)
-    - Contact: 3 → 2 luces (merged DirectionalLights)
-    - TechIcons: 4 + HDRI → 2 luces (removido Environment preset costoso)
-  - Draco compression implementado en 7 modelos GLB (67% reducción total)
-  - Decisión arquitectónica: Mantener 2 Canvas separados (óptimo para la arquitectura actual)
+**Completado exitosamente (3/5):**
+- ✅ **4.1 Canvas performance configurado**
+  - dpr adaptativo [1, 2], gl high-performance, flat color management
+  - performance degradation threshold (min: 0.5)
+  - Aplicado a 3 Canvas: Hero, Contact, TechIcons
 
-**Commits realizados:** 4 commits
-- `perf: configure Canvas performance settings for optimal 3D rendering`
-- `perf: move EffectComposer to Canvas level for correct post-processing architecture`
-- `perf: optimize 3D lighting - reduce from 14 lights to 7 lights`
-- `perf: implement Draco compression for all GLB models`
+- ✅ **4.2 Iluminación optimizada: 14+ luces → 7 luces (50% reducción)**
+  - Hero: 7 → 3 luces (consolidado SpotLights, removido RectAreaLight y PointLights)
+  - Contact: 3 → 2 luces (merged DirectionalLights)
+  - TechIcons: 4 + HDRI → 2 luces (removido Environment preset costoso)
 
-**Impacto logrado:**
-- **Modelos GLB optimizados: 1640KB → 543KB (67% reducción, 1097KB ahorrados)**
-- Optimizaciones notables:
-  - optimized-room.glb: 807KB → 74KB (91% reducción)
-  - node-transformed.glb: 713KB → 349KB (51% reducción)
-  - Total de modelos 3D: 1.64MB → 543KB
-- Canvas configurado con adaptive DPR (1-2), high-performance WebGL, flat color management
-- EffectComposer arquitectura corregida (mejor pipeline de post-processing)
-- 50% menos luces en escenas 3D → mejor FPS esperado
-- @gltf-transform/cli instalado para futuras optimizaciones
-
-**Decisiones arquitectónicas:**
-- Task 4.5: Evaluado consolidación de Canvas múltiples
-  - Estado actual: Solo 2 Canvas activos (Hero y Contact)
+- ✅ **4.5 Decisión arquitectónica sobre Canvas**
+  - Solo 2 Canvas activos (Hero y Contact)
   - TechStack 3D icons deshabilitados (usando imágenes estáticas)
   - Decisión: Mantener 2 Canvas separados es óptimo
-  - Razón: Secciones espacialmente separadas, diferentes configuraciones, complejidad innecesaria al consolidar
-  - Browsers manejan 2 Canvas eficientemente con las optimizaciones aplicadas
+  - Razón: Secciones separadas, diferentes configs, browsers manejan 2 Canvas eficientemente
+
+**Intentado y revertido (2/5):**
+- ❌ **4.3 EffectComposer al nivel Canvas** - REVERTIDA
+  - Problema: Timing issues con forwardRef
+  - Error: `Cannot read properties of undefined (reading 'layers')`
+  - SelectiveBloom intentaba usar ref antes de que mesh montara
+  - Solución: Revertido a arquitectura original (EffectComposer dentro de Room.jsx)
+  - Aprendizaje: La ubicación original era correcta para este caso específico
+
+- ❌ **4.4 Draco compression** - REVERTIDA
+  - Problema: gltf-transform con --compress draco modifica estructura de nodos
+  - Optimizaciones automáticas (join, dedup, simplify) rompen referencias de mesh
+  - Error: `Cannot read properties of undefined (reading 'geometry')`
+  - node names (`nodes.emis_lambert1_0`) ya no existen en modelos comprimidos
+  - Resultado inicial: 1640KB → 543KB (67% reducción)
+  - Solución: Restaurados modelos originales desde git (807KB, 713KB, etc.)
+  - Aprendizaje: Draco requiere configuración custom o regenerar componentes con gltfjsx
+
+**Validación con Playwright MCP:**
+- ✅ Aplicación renderiza correctamente
+- ✅ Todas las secciones lazy-load funcionan
+- ✅ Hero 3D con SelectiveBloom funciona
+- ✅ No hay errores críticos en consola
+- ⚠️ 2 warnings no críticos: "SelectiveBloom requires lights to work" (timing, no rompe funcionalidad)
+
+**Fix aplicado:**
+- Movido HeroLights y Particles fuera de Suspense boundary
+- Solo Room (modelo GLB) queda en Suspense para loading state
+- Mejora warnings pero no los elimina completamente (issue de timing en EffectComposer)
+
+**Commits realizados:** 5 commits
+1. `perf: configure Canvas performance settings for optimal 3D rendering`
+2. `perf: move EffectComposer to Canvas level...` (luego revertido)
+3. `perf: optimize 3D lighting - reduce from 14 lights to 7 lights`
+4. `perf: implement Draco compression...` (luego revertido)
+5. `fix: revert Task 4.3 and 4.4, move lights outside Suspense`
+
+**Impacto logrado:**
+- Canvas performance optimizado (dpr, gl, flat) ✅
+- 50% menos luces (14 → 7) → mejor FPS esperado ✅
+- 2 Canvas architecture validada ✅
+- Modelos siguen en tamaño original (~1.6MB total) ⚠️
+
+**Lecciones aprendidas:**
+1. EffectComposer placement depends on use case - original architecture was correct
+2. Draco compression breaks mesh references without custom configuration
+3. Playwright MCP essential for validation - caught critical errors before production
+4. Always test after optimizations - performance gains mean nothing if app breaks
 
 ### Próximos pasos
 
