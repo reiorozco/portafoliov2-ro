@@ -7,6 +7,7 @@ import ContactExperience from "../components/models/contact/ContactExperience";
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' }); // 'success' | 'error' | ''
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -16,11 +17,14 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    // Clear status message when user starts typing
+    if (formStatus.type) setFormStatus({ type: '', message: '' });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
+    setFormStatus({ type: '', message: '' }); // Clear previous status
 
     try {
       await emailjs.sendForm(
@@ -30,12 +34,34 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       );
 
-      // Reset form and stop loading
+      // Show success message
+      setFormStatus({
+        type: 'success',
+        message: '✓ Message sent successfully! I\'ll get back to you soon.',
+      });
+
+      // Reset form
       setForm({ name: "", email: "", message: "" });
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setFormStatus({ type: '', message: '' });
+      }, 5000);
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+
+      // Show error message
+      setFormStatus({
+        type: 'error',
+        message: '✕ Failed to send message. Please try again or email me directly.',
+      });
+
+      // Auto-hide error message after 7 seconds
+      setTimeout(() => {
+        setFormStatus({ type: '', message: '' });
+      }, 7000);
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -113,6 +139,21 @@ const Contact = () => {
                     </div>
                   </div>
                 </button>
+
+                {/* Status Message */}
+                {formStatus.message && (
+                  <div
+                    className={`mt-4 p-4 rounded-lg transition-all duration-300 ${
+                      formStatus.type === 'success'
+                        ? 'bg-green-500/20 border border-green-500/50 text-green-400'
+                        : 'bg-red-500/20 border border-red-500/50 text-red-400'
+                    }`}
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <p className="text-sm md:text-base">{formStatus.message}</p>
+                  </div>
+                )}
               </form>
             </div>
           </div>
