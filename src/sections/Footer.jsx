@@ -14,9 +14,14 @@ const Footer = () => {
               key={socialImg.name + index}
               className="icon"
               target="_blank"
+              rel="noopener noreferrer"
               href={socialImg.url}
+              aria-label={`Visit my ${socialImg.name} profile`}
             >
-              <img src={socialImg.imgPath} alt="social icon" />
+              <img
+                src={socialImg.imgPath}
+                alt={`${socialImg.name} social media icon`}
+              />
             </a>
           ))}
         </div>
