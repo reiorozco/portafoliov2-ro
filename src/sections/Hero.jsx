@@ -4,6 +4,7 @@ import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
+import LazyImage from "../components/LazyImage";
 import { words } from "../constants";
 
 const Hero = () => {
