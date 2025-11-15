@@ -1,8 +1,13 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useMediaQuery } from "react-responsive";
 
-const Particles = ({ count = 200 }) => {
+const Particles = ({ count: propCount = 200 }) => {
   const mesh = useRef();
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+  // Reduce particle count on mobile for better performance
+  const count = isMobile ? Math.min(propCount, 30) : propCount;
 
   const particles = useMemo(() => {
     const temp = [];
@@ -20,14 +25,29 @@ const Particles = ({ count = 200 }) => {
   }, [count]);
 
   useFrame(() => {
+    // Early exit if mesh not ready
+    if (!mesh.current) return;
+
     const positions = mesh.current.geometry.attributes.position.array;
+    let needsUpdate = false;
+
     for (let i = 0; i < count; i++) {
-      let y = positions[i * 3 + 1];
+      const idx = i * 3;
+      let y = positions[idx + 1];
       y -= particles[i].speed;
-      if (y < -2) y = Math.random() * 10 + 5;
-      positions[i * 3 + 1] = y;
+
+      if (y < -2) {
+        y = Math.random() * 10 + 5;
+        needsUpdate = true;
+      }
+
+      positions[idx + 1] = y;
     }
-    mesh.current.geometry.attributes.position.needsUpdate = true;
+
+    // Only update when necessary (when particles reset)
+    if (needsUpdate) {
+      mesh.current.geometry.attributes.position.needsUpdate = true;
+    }
   });
 
   const positions = new Float32Array(count * 3);
