@@ -18,7 +18,9 @@
       "mcp__playwright__browser_snapshot",
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_close"
+      "mcp__playwright__browser_close",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []
