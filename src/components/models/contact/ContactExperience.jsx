@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Perf } from "r3f-perf";
 
 import Computer from "./Computer";
 import CanvasLoader from "../../CanvasLoader";
@@ -34,6 +35,9 @@ const ContactExperience = () => {
         minPolarAngle={Math.PI / 5}
         maxPolarAngle={Math.PI / 2}
       />
+
+      {/* Performance monitor (dev mode only) */}
+      {import.meta.env.DEV && <Perf position="top-right" />}
 
       <group scale={[1, 1, 1]}>
         <mesh

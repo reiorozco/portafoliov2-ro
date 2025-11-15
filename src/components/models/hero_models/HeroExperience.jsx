@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Perf } from "r3f-perf";
 
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
@@ -35,6 +36,9 @@ const HeroExperience = () => {
         minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
         maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
       />
+
+      {/* Performance monitor (dev mode only) */}
+      {import.meta.env.DEV && <Perf position="top-left" />}
 
       {/* Lights outside Suspense so EffectComposer can use them */}
       <HeroLights />
