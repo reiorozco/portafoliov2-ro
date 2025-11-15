@@ -36,7 +36,16 @@ const TechIconCardExperience = ({ model }) => {
   }, [scene, model.name, whiteMaterial]);
 
   return (
-    <Canvas>
+    <Canvas
+      dpr={[1, 2]} // Adaptive pixel ratio
+      gl={{
+        antialias: true,
+        powerPreference: "high-performance",
+        alpha: false,
+      }}
+      flat
+      performance={{ min: 0.5 }}
+    >
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <spotLight
