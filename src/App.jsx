@@ -14,15 +14,27 @@ import "./utils/preloadAssets";
 
 const App = () => (
   <>
+    {/* Skip to main content link for keyboard navigation */}
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-purple-500 focus:text-white focus:rounded"
+    >
+      Skip to main content
+    </a>
+
     <Navbar />
-    <Hero />
-    <ShowcaseSection />
-    <LogoShowcase />
-    <FeatureCards />
-    <Experience />
-    <TechStack />
-    {/* <Testimonials /> */}
-    <Contact />
+
+    <main id="main-content">
+      <Hero />
+      <ShowcaseSection />
+      <LogoShowcase />
+      <FeatureCards />
+      <Experience />
+      <TechStack />
+      {/* <Testimonials /> */}
+      <Contact />
+    </main>
+
     <Footer />
   </>
 );

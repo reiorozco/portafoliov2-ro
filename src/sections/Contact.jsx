@@ -53,6 +53,7 @@ const Contact = () => {
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
+                aria-label="Contact form"
               >
                 <div>
                   <label htmlFor="name">Your name</label>
@@ -62,8 +63,9 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What's your good name?"
                     required
+                    aria-required="true"
                   />
                 </div>
 
@@ -75,8 +77,9 @@ const Contact = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder="What's your email address?"
                     required
+                    aria-required="true"
                   />
                 </div>
 
@@ -90,17 +93,23 @@ const Contact = () => {
                     placeholder="How can I help you?"
                     rows="5"
                     required
+                    aria-required="true"
                   />
                 </div>
 
-                <button type="submit">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  aria-busy={loading}
+                  aria-label={loading ? "Sending message..." : "Send message"}
+                >
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
                       {loading ? "Sending..." : "Send Message"}
                     </p>
                     <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
+                      <img src="/images/arrow-down.svg" alt="Right arrow icon" />
                     </div>
                   </div>
                 </button>

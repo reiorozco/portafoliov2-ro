@@ -48,7 +48,7 @@ const AppShowcase = () => {
   }, []);
 
   return (
-    <div id="work" ref={sectionRef} className="app-showcase">
+    <section id="work" ref={sectionRef} className="app-showcase" aria-label="Projects showcase">
       <div className="w-full">
         <div className="showcaselayout">
           <div ref={kranioRef} className="first-project-wrapper">
@@ -93,7 +93,7 @@ const AppShowcase = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
