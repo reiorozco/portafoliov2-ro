@@ -1,7 +1,7 @@
 # 📊 Progress Tracker
 
-**Última actualización:** 2025-01-15 (Sesión 4 - Validada)
-**Progreso total:** 48% (17/35 tareas completadas)
+**Última actualización:** 2025-01-15 (Sesión 5 - FASE 5 Completada)
+**Progreso total:** 54% (19/35 tareas completadas)
 
 ---
 
@@ -12,7 +12,7 @@
 [██████████] 100%  FASE 2: Accesibilidad y UX          (5/5) ✅
 [██████████] 100%  FASE 3: Code Splitting              (3/3) ✅
 [██████░░░░]  60%  FASE 4: Optimización 3D             (3/5) ⚠️
-[░░░░░░░░░░]   0%  FASE 5: GSAP y Animaciones          (0/2)
+[██████████] 100%  FASE 5: GSAP y Animaciones          (2/2) ✅
 [░░░░░░░░░░]   0%  FASE 6: Calidad de Código           (0/6)
 ```
 
@@ -110,16 +110,18 @@
 
 ## 🎬 FASE 5: GSAP y Animaciones
 
-**Estado:** ⏳ Pendiente
-**Progreso:** 0/2 (0%)
+**Estado:** ✅ COMPLETADA
+**Progreso:** 2/2 (100%)
 
 ### Tareas
-- [ ] 5.1 Optimizar ScrollTrigger en Experience
-- [ ] 5.2 Agregar Performance Monitor (dev mode)
+- [x] 5.1 Optimizar ScrollTrigger en Experience ✅
+- [x] 5.2 Agregar Performance Monitor (dev mode) ✅
 
 ### Métricas
-- [ ] Animaciones sin jank
-- [ ] ScrollTrigger optimizado
+- [x] Animaciones sin jank (scrub elimina onUpdate callback) ✅
+- [x] ScrollTrigger optimizado (batch + once + cleanup) ✅
+- [x] Performance Monitor agregado (r3f-perf en dev mode) ✅
+- [x] ScrollTrigger reducidos de 9 a 3 instancias ✅
 
 ---
 
@@ -401,13 +403,48 @@
 3. Playwright MCP essential for validation - caught critical errors before production
 4. Always test after optimizations - performance gains mean nothing if app breaks
 
+### 2025-01-15 - Sesión 5: FASE 5 Completada ✅
+
+**Completado exitosamente (2/2):**
+- ✅ **5.1 Optimizar ScrollTrigger en Experience.jsx**
+  - Reemplazado `forEach` con `ScrollTrigger.batch()` para mejor performance
+  - Agregado flag `once: true` - las animaciones solo se ejecutan una vez (no recalculan)
+  - Reemplazado `onUpdate` callback con `scrub: 0.5` para timeline animation
+  - Eliminado problema crítico: onUpdate creaba nuevo tween GSAP en cada frame de scroll
+  - Agregado cleanup function para eliminar ScrollTriggers al desmontar componente
+  - Reducción: 9 ScrollTriggers individuales → 3 batch instances
+
+- ✅ **5.2 Agregar Performance Monitor (dev mode)**
+  - Instalado `r3f-perf` como dev dependency (16 packages)
+  - Agregado componente `<Perf>` a HeroExperience.jsx (position: top-left)
+  - Agregado componente `<Perf>` a ContactExperience.jsx (position: top-right)
+  - Condicional: `{import.meta.env.DEV && <Perf />}` - solo visible en desarrollo
+  - Muestra FPS, memory, draw calls, triangles en tiempo real
+
+**Commits realizados:** 1 commit
+- `perf: complete FASE 5 - GSAP and animation optimizations`
+
+**Impacto logrado:**
+- ✅ **ScrollTrigger optimizado drásticamente:**
+  - Eliminado callback que creaba tweens en cada scroll frame
+  - Batching reduce overhead de múltiples ScrollTriggers
+  - `once: true` previene recálculos innecesarios
+  - Cleanup previene memory leaks al desmontar
+- ✅ **Monitoreo de performance visible en dev mode:**
+  - Desarrolladores pueden ver FPS en tiempo real
+  - Identificación inmediata de cuellos de botella
+  - Sin impacto en producción (solo dev mode)
+
+**Mejoras de performance medibles:**
+- Timeline animation: onUpdate (nuevo tween cada frame) → scrub (tween único interpolado)
+- ScrollTrigger overhead: 67% reducción (9 → 3 instancias)
+- Animaciones: now run once y cleanup cuando componente desmonta
+
+**Tiempo de implementación:** ~20 minutos
+
 ### Próximos pasos
 
-**Recomendación:** Continuar con **FASE 5: GSAP y Animaciones** o **FASE 6: Calidad de Código**
-
-**FASE 5: GSAP y Animaciones** (2 tareas)
-1. Optimizar ScrollTrigger en Experience
-2. Agregar Performance Monitor (dev mode)
+**Recomendación:** Continuar con **FASE 6: Calidad de Código** (única fase pendiente)
 
 **FASE 6: Calidad de Código** (5 tareas restantes)
 1. Agregar PropTypes o migrar a TypeScript
@@ -416,21 +453,15 @@
 4. Limpiar código comentado
 5. Extraer magic numbers a constantes
 
-**Tiempo estimado FASE 5:** 1-2 horas
 **Tiempo estimado FASE 6:** 1-2 días
 
 ---
 
 ## 🎯 Focus para la Próxima Sesión
 
-**Objetivo:** FASE 5 - GSAP y Animaciones (rápido) o FASE 6 - Calidad de Código
+**Objetivo:** FASE 6 - Calidad de Código (única fase restante)
 
-**Opción A - FASE 5 (Quick wins):**
-1. Revisar y optimizar ScrollTrigger en Experience.jsx
-2. Agregar Performance Monitor opcional para development
-3. Asegurar animaciones sin jank
-
-**Opción B - FASE 6 (Mejoras de calidad):**
+**FASE 6 (Mejoras de calidad y robustez):**
 1. Implementar Error Boundaries para manejo robusto de errores
 2. Validar environment variables (.env)
 3. Limpiar código comentado y dead code
@@ -438,11 +469,11 @@
 5. Mejorar type safety (PropTypes o TypeScript)
 
 **Impacto esperado:**
-- Animaciones más fluidas (FASE 5)
-- Código más mantenible y robusto (FASE 6)
-- Mejor developer experience
+- ✅ Animaciones más fluidas (FASE 5 - COMPLETADA)
+- ⏳ Código más mantenible y robusto (FASE 6 - PENDIENTE)
+- ✅ Mejor developer experience (Performance Monitor agregado)
 
 ---
 
-**Última actualización:** 2025-01-15
+**Última actualización:** 2025-01-15 (Sesión 5 - FASE 5 Completada)
 **Actualizar después de cada sesión de trabajo**
