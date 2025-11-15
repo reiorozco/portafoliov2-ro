@@ -1,13 +1,20 @@
-import Contact from "./sections/Contact";
-import Experience from "./sections/Experience";
-import FeatureCards from "./sections/FeatureCards";
-import Footer from "./sections/Footer";
-import Hero from "./sections/Hero";
-import LogoShowcase from "./sections/LogoShowcase";
+import { lazy, Suspense } from "react";
+
+// Critical above-the-fold components (eager loading)
 import Navbar from "./components/NavBar";
-import ShowcaseSection from "./sections/ShowcaseSection";
-import TechStack from "./sections/TechStack";
-// import Testimonials from "./sections/Testimonials";
+import Hero from "./sections/Hero";
+import Footer from "./sections/Footer";
+import LogoShowcase from "./sections/LogoShowcase";
+
+// Loading fallback component
+import SectionLoader from "./components/SectionLoader";
+
+// Heavy below-the-fold sections (lazy loading)
+const ShowcaseSection = lazy(() => import("./sections/ShowcaseSection"));
+const FeatureCards = lazy(() => import("./sections/FeatureCards"));
+const Experience = lazy(() => import("./sections/Experience"));
+const TechStack = lazy(() => import("./sections/TechStack"));
+const Contact = lazy(() => import("./sections/Contact"));
 
 // Preload all 3D models for faster loading
 import "./utils/preloadAssets";
@@ -26,13 +33,27 @@ const App = () => (
 
     <main id="main-content">
       <Hero />
-      <ShowcaseSection />
       <LogoShowcase />
-      <FeatureCards />
-      <Experience />
-      <TechStack />
-      {/* <Testimonials /> */}
-      <Contact />
+
+      <Suspense fallback={<SectionLoader />}>
+        <ShowcaseSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <FeatureCards />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <Experience />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <TechStack />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <Contact />
+      </Suspense>
     </main>
 
     <Footer />
