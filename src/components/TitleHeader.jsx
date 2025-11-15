@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const TitleHeader = ({ title, sub }) => {
   return (
     <div className="flex flex-col items-center gap-5">
@@ -12,6 +14,11 @@ const TitleHeader = ({ title, sub }) => {
       </div>
     </div>
   );
+};
+
+TitleHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  sub: PropTypes.string.isRequired,
 };
 
 export default TitleHeader;

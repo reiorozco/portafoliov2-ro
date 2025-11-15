@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
 const GlowCard = ({ card, index, children }) => {
   // refs for all the cards
@@ -45,6 +46,14 @@ const GlowCard = ({ card, index, children }) => {
       {children}
     </div>
   );
+};
+
+GlowCard.propTypes = {
+  card: PropTypes.shape({
+    review: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+  children: PropTypes.node,
 };
 
 export default GlowCard;

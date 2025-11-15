@@ -6,6 +6,7 @@ import TitleHeader from "../components/TitleHeader";
 import GlowCard from "../components/GlowCard";
 import LazyImage from "../components/LazyImage";
 import { expCards } from "../constants";
+import { SCROLL_TRIGGER_CONFIG } from "../constants/config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +15,7 @@ const Experience = () => {
     // Batch animate timeline cards for better performance
     // instead of creating individual ScrollTriggers for each card
     ScrollTrigger.batch(".timeline-card", {
-      // Trigger when cards are 80% down the screen
-      start: "top 80%",
+      start: SCROLL_TRIGGER_CONFIG.EXPERIENCE_START,
       // Only animate once (don't recalculate on every scroll)
       once: true,
       // Stagger the animation by 0.1s between each card
@@ -39,15 +39,15 @@ const Experience = () => {
       ease: "none", // Linear ease for scrub animations
       scrollTrigger: {
         trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        scrub: 0.5, // Smooth scrubbing with 0.5s delay (prevents jarring motion)
+        start: SCROLL_TRIGGER_CONFIG.TIMELINE_START,
+        end: SCROLL_TRIGGER_CONFIG.TIMELINE_END,
+        scrub: SCROLL_TRIGGER_CONFIG.SCRUB_DELAY,
       },
     });
 
     // Batch animate text elements for better performance
     ScrollTrigger.batch(".expText", {
-      start: "top 60%",
+      start: SCROLL_TRIGGER_CONFIG.TEXT_START,
       once: true,
       onEnter: (batch) => {
         gsap.from(batch, {

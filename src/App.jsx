@@ -6,7 +6,8 @@ import Hero from "./sections/Hero";
 import Footer from "./sections/Footer";
 import LogoShowcase from "./sections/LogoShowcase";
 
-// Loading fallback component
+// Error handling and loading fallback components
+import ErrorBoundary from "./components/ErrorBoundary";
 import SectionLoader from "./components/SectionLoader";
 
 // Heavy below-the-fold sections (lazy loading)
@@ -20,7 +21,7 @@ const Contact = lazy(() => import("./sections/Contact"));
 import "./utils/preloadAssets";
 
 const App = () => (
-  <>
+  <ErrorBoundary>
     {/* Skip to main content link for keyboard navigation */}
     <a
       href="#main-content"
@@ -32,32 +33,48 @@ const App = () => (
     <Navbar />
 
     <main id="main-content">
-      <Hero />
+      {/* Hero with 3D Canvas - wrapped for error isolation */}
+      <ErrorBoundary>
+        <Hero />
+      </ErrorBoundary>
+
       <LogoShowcase />
 
-      <Suspense fallback={<SectionLoader />}>
-        <ShowcaseSection />
-      </Suspense>
+      {/* Lazy sections - each wrapped to prevent cascade failures */}
+      <ErrorBoundary>
+        <Suspense fallback={<SectionLoader />}>
+          <ShowcaseSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<SectionLoader />}>
-        <FeatureCards />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<SectionLoader />}>
+          <FeatureCards />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<SectionLoader />}>
-        <Experience />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<SectionLoader />}>
+          <Experience />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<SectionLoader />}>
-        <TechStack />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<SectionLoader />}>
+          <TechStack />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<SectionLoader />}>
-        <Contact />
-      </Suspense>
+      {/* Contact with 3D Canvas - wrapped for error isolation */}
+      <ErrorBoundary>
+        <Suspense fallback={<SectionLoader />}>
+          <Contact />
+        </Suspense>
+      </ErrorBoundary>
     </main>
 
     <Footer />
-  </>
+  </ErrorBoundary>
 );
 
 export default App;

@@ -8,22 +8,29 @@ import { Room } from "./Room";
 import HeroLights from "./HeroLights";
 import Particles from "./Particles";
 import CanvasLoader from "../../CanvasLoader";
+import {
+  BREAKPOINTS,
+  CAMERA_CONFIG,
+  ORBIT_CONTROLS,
+  PERFORMANCE_CONFIG,
+  PARTICLES_CONFIG,
+} from "../../../constants/config";
 
 const HeroExperience = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isMobile = useMediaQuery({ query: `(max-width: ${BREAKPOINTS.MOBILE}px)` });
+  const isTablet = useMediaQuery({ query: `(max-width: ${BREAKPOINTS.TABLET}px)` });
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 15], fov: 45 }}
-      dpr={[1, 2]} // Adaptive pixel ratio (1x for low-end, up to 2x for high-end devices)
+      camera={{ position: [0, 0, 15], fov: CAMERA_CONFIG.FOV }}
+      dpr={[PERFORMANCE_CONFIG.DPR_MIN, PERFORMANCE_CONFIG.DPR_MAX]} // Adaptive pixel ratio
       gl={{
         antialias: true,
         powerPreference: "high-performance",
         alpha: false, // Disable transparency for better performance
       }}
       flat // Modern linear color management (faster than sRGB)
-      performance={{ min: 0.5 }} // Allow up to 50% degradation for maintaining FPS
+      performance={{ min: PERFORMANCE_CONFIG.MIN_PERFORMANCE }} // Performance degradation threshold
     >
       {/* deep blue ambient */}
       <ambientLight intensity={0.2} color="#1a1a40" />
@@ -31,10 +38,10 @@ const HeroExperience = () => {
       <OrbitControls
         enablePan={false} // Prevents panning of the scene
         enableZoom={!isTablet} // Disables zoom on tablets
-        maxDistance={20} // Maximum distance for zooming out
-        minDistance={5} // Minimum distance for zooming in
-        minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
-        maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        maxDistance={ORBIT_CONTROLS.MAX_DISTANCE}
+        minDistance={ORBIT_CONTROLS.MIN_DISTANCE}
+        minPolarAngle={ORBIT_CONTROLS.MIN_POLAR_ANGLE}
+        maxPolarAngle={ORBIT_CONTROLS.MAX_POLAR_ANGLE}
       />
 
       {/* Performance monitor (dev mode only) */}
@@ -42,7 +49,7 @@ const HeroExperience = () => {
 
       {/* Lights outside Suspense so EffectComposer can use them */}
       <HeroLights />
-      <Particles count={100} />
+      <Particles count={PARTICLES_CONFIG.COUNT} />
 
       <Suspense fallback={<CanvasLoader />}>
         <group
