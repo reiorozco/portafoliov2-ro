@@ -12,6 +12,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   useGSAP(() => {
+    // Set initial states explicitly to prevent layout shift
+    gsap.set(".timeline-card", {
+      xPercent: -100,
+      opacity: 0,
+      transformOrigin: "left left"
+    });
+    gsap.set(".expText", { opacity: 0 });
+
+    // Small delay to ensure DOM is ready and images are positioned
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
     // Batch animate timeline cards for better performance
     // instead of creating individual ScrollTriggers for each card
     ScrollTrigger.batch(".timeline-card", {
@@ -20,12 +33,11 @@ const Experience = () => {
       once: true,
       // Stagger the animation by 0.1s between each card
       onEnter: (batch) => {
-        gsap.from(batch, {
-          xPercent: -100,
-          opacity: 0,
-          transformOrigin: "left left",
+        gsap.to(batch, {
+          xPercent: 0,
+          opacity: 1,
           duration: 1,
-          ease: "power2.inOut",
+          ease: "power2.out",
           stagger: 0.1,
         });
       },
@@ -50,10 +62,10 @@ const Experience = () => {
       start: SCROLL_TRIGGER_CONFIG.TEXT_START,
       once: true,
       onEnter: (batch) => {
-        gsap.from(batch, {
-          opacity: 0,
+        gsap.to(batch, {
+          opacity: 1,
           duration: 1,
-          ease: "power2.inOut",
+          ease: "power2.out",
           stagger: 0.15,
         });
       },
