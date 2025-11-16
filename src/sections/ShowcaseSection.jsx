@@ -13,38 +13,31 @@ const AppShowcase = () => {
   const amazonCloneRef = useRef(null);
 
   useGSAP(() => {
-    // Animation for the main section
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.5 },
-    );
+    // Ensure all elements are visible by default
+    gsap.set(sectionRef.current, { opacity: 1 });
+    gsap.set([kranioRef.current, gameHubRef.current, amazonCloneRef.current], {
+      opacity: 1,
+      y: 0
+    });
 
-    // Animations for each app showcase
+    // Optional subtle animation on scroll (elements stay visible even if animation doesn't trigger)
     const cards = [
       kranioRef.current,
       gameHubRef.current,
       amazonCloneRef.current,
     ];
 
-    cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          y: 50,
-          opacity: 0,
+    cards.forEach((card) => {
+      gsap.from(card, {
+        y: 20,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
         },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.3 * (index + 1),
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=100",
-          },
-        },
-      );
+      });
     });
   }, []);
 
