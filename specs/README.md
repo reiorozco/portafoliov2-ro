@@ -4,7 +4,7 @@ Esta carpeta contiene la documentación histórica del proyecto de optimización
 
 ## 📄 Documentación
 
-### [PROGRESS.md](./PROGRESS.md) ✅ Historial del Proyecto
+### [PROJECT_HISTORY.md](./PROJECT_HISTORY.md) ✅ Historial del Proyecto
 
 **Registro completo del desarrollo y mantenimiento:**
 
