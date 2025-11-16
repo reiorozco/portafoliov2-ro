@@ -29,3 +29,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Playwright MCP screenshots and debugging files
+.playwright-mcp/
