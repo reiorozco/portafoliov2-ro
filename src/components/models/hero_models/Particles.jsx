@@ -29,7 +29,6 @@ const Particles = ({ count: propCount = 200 }) => {
     if (!mesh.current) return;
 
     const positions = mesh.current.geometry.attributes.position.array;
-    let needsUpdate = false;
 
     for (let i = 0; i < count; i++) {
       const idx = i * 3;
@@ -38,16 +37,13 @@ const Particles = ({ count: propCount = 200 }) => {
 
       if (y < -2) {
         y = Math.random() * 10 + 5;
-        needsUpdate = true;
       }
 
       positions[idx + 1] = y;
     }
 
-    // Only update when necessary (when particles reset)
-    if (needsUpdate) {
-      mesh.current.geometry.attributes.position.needsUpdate = true;
-    }
+    // Always mark for update since positions change every frame
+    mesh.current.geometry.attributes.position.needsUpdate = true;
   });
 
   const positions = new Float32Array(count * 3);
