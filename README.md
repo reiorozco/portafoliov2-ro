@@ -264,7 +264,7 @@ This project is **MIT licensed** - feel free to use it as inspiration for your o
 
 **Rei Orozco**
 
-- Website: [Your Portfolio URL]
+- Website: [Portfolio](https://portfolio-ro-bay.vercel.app/)
 - LinkedIn: [linkedin.com/in/reiorozco](https://www.linkedin.com/in/reiorozco)
 - Instagram: [@orozcorei](https://www.instagram.com/orozcorei)
 - GitHub: [@reiorozco](https://github.com/reiorozco)
