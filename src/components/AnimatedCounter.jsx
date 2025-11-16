@@ -12,30 +12,32 @@ const AnimatedCounter = () => {
   const countersRef = useRef([]);
 
   useGSAP(() => {
-    countersRef.current.forEach((counter, index) => {
-      const numberElement = counter.querySelector(".counter-number");
-      const item = counterItems[index];
+    // Small delay to ensure DOM is ready
+    gsap.delayedCall(0.5, () => {
+      countersRef.current.forEach((counter, index) => {
+        const numberElement = counter.querySelector(".counter-number");
+        const item = counterItems[index];
 
-      // Set the initial value to 0
-      gsap.set(numberElement, { innerText: "0" });
+        if (!numberElement) return;
 
-      // Create the counting animation
-      gsap.to(numberElement, {
-        innerText: item.value,
-        duration: 2.5,
-        ease: "power2.out",
-        snap: { innerText: 1 }, // Ensures whole numbers
-        scrollTrigger: {
-          trigger: "#counter",
-          start: "top center",
-        },
-        // Add the suffix after counting is complete
-        onComplete: () => {
-          numberElement.textContent = `${item.value}${item.suffix}`;
-        },
+        // Set the initial value to 0
+        gsap.set(numberElement, { innerText: "0" });
+
+        // Create the counting animation (no ScrollTrigger since element is immediately visible)
+        gsap.to(numberElement, {
+          innerText: item.value,
+          duration: 2.5,
+          ease: "power2.out",
+          snap: { innerText: 1 }, // Ensures whole numbers
+          delay: index * 0.1, // Stagger each counter slightly
+          // Add the suffix after counting is complete
+          onComplete: () => {
+            numberElement.textContent = `${item.value}${item.suffix}`;
+          },
+        });
       });
-    }, counterRef);
-  }, []);
+    });
+  }, { scope: counterRef });
 
   return (
     <div id="counter" ref={counterRef} className="padding-x-lg xl:mt-0 mt-32">
