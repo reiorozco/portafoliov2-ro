@@ -29,8 +29,8 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 4, suffix: "+", label: "Years of Experience" },
-  { value: 3, suffix: "+", label: "Companies Worked At" },
+  { value: 5, suffix: "+", label: "Years of Experience" },
+  { value: 6, suffix: "+", label: "Companies Worked At" },
   { value: 20, suffix: "+", label: "Completed Projects" },
   { value: 100, suffix: "%", label: "Commitment to Code Quality" },
 ];
@@ -182,6 +182,32 @@ const techStackIcons = [
 const expCards = [
   {
     review:
+      "Rei brought senior-level ownership to our AI environment work — his MCP servers and deterministic state design set a high bar for how reliably we could train and evaluate agents.",
+    logoPath: "/images/logo-fleet.svg",
+    logoAlt: "Fleet AI company logo",
+    title: "Full Stack & AI Environment Developer",
+    date: "Dec 2025 – Jun 2026",
+    responsibilities: [
+      "Engineered deterministic “Fleet Environments” to train and evaluate frontier AI agents.",
+      "Built Model Context Protocol (MCP) servers and reactive Svelte 5 UIs over a SQLite + Drizzle state layer.",
+      "Implemented full backend activity logging with atomic SQL transactions in Node.js and Express.",
+    ],
+  },
+  {
+    review:
+      "Rei led complex frontend work across our SaaS and ERP platforms with speed and care, shipping AI-powered features and clean, maintainable architecture that scaled with the product.",
+    logoPath: "/images/logo-geeks5g.png",
+    logoAlt: "Geeks5G Marketing Agency company logo",
+    title: "Frontend Web Developer",
+    date: "May 2025 – Feb 2026",
+    responsibilities: [
+      "Built the frontend of an all-in-one social media management SaaS with Next.js.",
+      "Integrated AI content features and secure OAuth flows (including Google My Business).",
+      "Developed core ERP modules with Next-Auth, internationalization (next-intl), and Stripe payments.",
+    ],
+  },
+  {
+    review:
       "Reinaldo took ownership of key frontend components and helped improve the performance and scalability of our internal logistics platform. His technical contributions were key to our team's success.",
     imgPath: "/images/exp1.0.png",
     imgAlt: "Software development workspace with code editor and logistics dashboard",
@@ -256,79 +282,29 @@ const expLogos = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
-    review:
-      "I can't say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
-    alt: "Profile photo of Esther Howard",
-  },
-  {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
-    review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
-    alt: "Profile photo of Wade Warren",
-  },
-  {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
-    review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
-    alt: "Profile photo of Guy Hawkins",
-  },
-  {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that's both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-    alt: "Profile photo of Marvin McKinney",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review:
-      "Adrian's expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He's a true professional!",
-    imgPath: "/images/client4.png",
-    alt: "Profile photo of Floyd Miles",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
-    alt: "Profile photo of Albert Flores",
-  },
-];
+// NOTE: Placeholder testimonials from the original template were removed.
+// This section is not rendered (not imported in App.jsx). Add real testimonials
+// here when available, then re-enable the section.
+const testimonials = [];
 
 const socialImgs = [
   {
-    name: "insta",
-    imgPath: "/images/insta.png",
-    url: "https://www.instagram.com/orozcorei",
-    alt: "Instagram social media icon",
-  },
-  {
-    name: "fb",
-    imgPath: "/images/fb.png",
-    alt: "Facebook social media icon",
-  },
-  {
-    name: "x",
-    imgPath: "/images/x.png",
-    alt: "X (Twitter) social media icon",
+    name: "github",
+    imgPath: "/images/github.svg",
+    url: "https://github.com/reiorozco",
+    alt: "GitHub profile icon",
   },
   {
     name: "linkedin",
     imgPath: "/images/linkedin.png",
     url: "https://www.linkedin.com/in/reiorozco",
     alt: "LinkedIn social media icon",
+  },
+  {
+    name: "insta",
+    imgPath: "/images/insta.png",
+    url: "https://www.instagram.com/orozcorei",
+    alt: "Instagram social media icon",
   },
 ];
 

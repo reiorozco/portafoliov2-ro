@@ -4,7 +4,6 @@ import gsap from "gsap";
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
-import LazyImage from "../components/LazyImage";
 import { words } from "../constants";
 
 const Hero = () => {
@@ -52,8 +51,8 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Rei, a developer based in Colombia with a passion for
-              code.
+              Hi, I’m Rei — a Full Stack Engineer based in Colombia with 5+
+              years building web, mobile, and AI-driven products.
             </p>
 
             <Button
