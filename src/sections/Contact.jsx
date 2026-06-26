@@ -53,13 +53,13 @@ const Contact = () => {
       // Show error message
       setFormStatus({
         type: 'error',
-        message: '✕ Failed to send message. Please try again or email me directly.',
+        message: "✕ Couldn't send your message. Please try again, or reach me directly:",
       });
 
-      // Auto-hide error message after 7 seconds
+      // Auto-hide error message after 12 seconds (time to use the mailto fallback)
       setTimeout(() => {
         setFormStatus({ type: '', message: '' });
-      }, 7000);
+      }, 12000);
     } finally {
       setLoading(false);
     }
@@ -149,6 +149,14 @@ const Contact = () => {
                     aria-live="polite"
                   >
                     <p className="text-sm md:text-base">{formStatus.message}</p>
+                    {formStatus.type === 'error' && (
+                      <a
+                        href="mailto:rfoc15@gmail.com"
+                        className="text-sm md:text-base font-medium underline underline-offset-2 hover:no-underline"
+                      >
+                        rfoc15@gmail.com
+                      </a>
+                    )}
                   </div>
                 )}
               </form>
