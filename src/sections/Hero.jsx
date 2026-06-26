@@ -52,8 +52,9 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Rei — a Full Stack Engineer based in Colombia with 5+
-              years building web, mobile, and AI-driven products.
+              Hi, I’m Rei — a Full Stack Engineer (5+ yrs) shipping production
+              web &amp; mobile apps, recently specialized in AI agent tooling
+              with MCP &amp; Svelte 5 at Fleet AI. Open to remote roles.
             </p>
 
             <Button

@@ -19,12 +19,12 @@ const navLinks = [
 
 const words = [
   { text: "Web Apps", imgPath: "/images/code.svg", alt: "Code brackets icon representing web applications" },
-  { text: "Mobile Apps", imgPath: "/images/designs.svg", alt: "Design tools icon representing mobile applications" },
-  { text: "AI Features", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing AI-powered features" },
+  { text: "MCP Servers", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing MCP servers for AI" },
+  { text: "Svelte 5 UIs", imgPath: "/images/designs.svg", alt: "Design tools icon representing Svelte 5 interfaces" },
   { text: "APIs", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon representing backend APIs" },
   { text: "Web Apps", imgPath: "/images/code.svg", alt: "Code brackets icon representing web applications" },
-  { text: "Mobile Apps", imgPath: "/images/designs.svg", alt: "Design tools icon representing mobile applications" },
-  { text: "AI Features", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing AI-powered features" },
+  { text: "MCP Servers", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing MCP servers for AI" },
+  { text: "Svelte 5 UIs", imgPath: "/images/designs.svg", alt: "Design tools icon representing Svelte 5 interfaces" },
   { text: "APIs", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon representing backend APIs" },
 ];
 
