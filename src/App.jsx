@@ -12,7 +12,6 @@ import SectionLoader from "./components/SectionLoader";
 
 // Heavy below-the-fold sections (lazy loading)
 const ShowcaseSection = lazy(() => import("./sections/ShowcaseSection"));
-const FeatureCards = lazy(() => import("./sections/FeatureCards"));
 const Experience = lazy(() => import("./sections/Experience"));
 const TechStack = lazy(() => import("./sections/TechStack"));
 const Contact = lazy(() => import("./sections/Contact"));
@@ -44,12 +43,6 @@ const App = () => (
       <ErrorBoundary>
         <Suspense fallback={<SectionLoader />}>
           <ShowcaseSection />
-        </Suspense>
-      </ErrorBoundary>
-
-      <ErrorBoundary>
-        <Suspense fallback={<SectionLoader />}>
-          <FeatureCards />
         </Suspense>
       </ErrorBoundary>
 
