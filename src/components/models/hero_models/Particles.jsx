@@ -50,15 +50,23 @@ const Particles = ({ count: propCount = 200 }) => {
     mesh.current.geometry.attributes.position.needsUpdate = true;
   });
 
-  const positions = new Float32Array(count * 3);
-  particles.forEach((p, i) => {
-    positions[i * 3] = p.position[0];
-    positions[i * 3 + 1] = p.position[1];
-    positions[i * 3 + 2] = p.position[2];
-  });
+  // Stable buffer for the current count. Recreating it every render (or
+  // changing its size when `count` flips on the mobile breakpoint) makes
+  // three.js throw "Resizing buffer attributes is not supported" every frame.
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3);
+    particles.forEach((p, i) => {
+      arr[i * 3] = p.position[0];
+      arr[i * 3 + 1] = p.position[1];
+      arr[i * 3 + 2] = p.position[2];
+    });
+    return arr;
+  }, [count, particles]);
 
   return (
-    <points ref={mesh}>
+    // key={count} remounts the geometry with a fresh buffer when the particle
+    // count changes (desktop ↔ mobile) instead of resizing it in place.
+    <points key={count} ref={mesh}>
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
