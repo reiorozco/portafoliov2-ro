@@ -198,6 +198,18 @@ section {
         }
       }
 
+      /* Featured (matchday) hero is a wide landing screenshot. Size the frame to
+         the image's own aspect ratio and contain it, so the headline is never
+         cropped no matter the viewport (the fixed-height frame above varies its
+         aspect by screen size and crops unpredictably). */
+      .image-wrapper.featured-media {
+        @apply h-auto aspect-[1280/680];
+
+        img {
+          @apply object-contain;
+        }
+      }
+
       .text-content {
         @apply space-y-5 mt-5;
 

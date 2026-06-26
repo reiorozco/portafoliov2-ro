@@ -153,7 +153,7 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           {/* Featured flagship: matchday-mcp (open-source MCP server + Svelte playground) */}
           <div className="first-project-wrapper showcase-card">
-            <div className="image-wrapper">
+            <div className="image-wrapper featured-media">
               <LazyImage src={featured.image} alt={featured.imageAlt} />
             </div>
             <div className="text-content">
