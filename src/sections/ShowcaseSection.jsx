@@ -158,7 +158,7 @@ const AppShowcase = () => {
             </div>
             <div className="text-content">
               <h2 className="display-type">{featured.title}</h2>
-              <p className="text-white-50 md:text-xl">{featured.description}</p>
+              <p className="text-white-50 md:text-xl max-w-2xl">{featured.description}</p>
               <Tags tags={featured.tags} />
               <ProjectLinks
                 demoUrl={featured.demoUrl}
