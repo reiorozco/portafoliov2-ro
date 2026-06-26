@@ -18,68 +18,31 @@ const navLinks = [
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing innovative ideas" },
-  { text: "Concepts", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon symbolizing creative concepts" },
-  { text: "Designs", imgPath: "/images/designs.svg", alt: "Design tools icon representing visual design" },
-  { text: "Code", imgPath: "/images/code.svg", alt: "Code brackets icon representing software development" },
-  { text: "Ideas", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing innovative ideas" },
-  { text: "Concepts", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon symbolizing creative concepts" },
-  { text: "Designs", imgPath: "/images/designs.svg", alt: "Design tools icon representing visual design" },
-  { text: "Code", imgPath: "/images/code.svg", alt: "Code brackets icon representing software development" },
+  { text: "Web Apps", imgPath: "/images/code.svg", alt: "Code brackets icon representing web applications" },
+  { text: "Mobile Apps", imgPath: "/images/designs.svg", alt: "Design tools icon representing mobile applications" },
+  { text: "AI Features", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing AI-powered features" },
+  { text: "APIs", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon representing backend APIs" },
+  { text: "Web Apps", imgPath: "/images/code.svg", alt: "Code brackets icon representing web applications" },
+  { text: "Mobile Apps", imgPath: "/images/designs.svg", alt: "Design tools icon representing mobile applications" },
+  { text: "AI Features", imgPath: "/images/ideas.svg", alt: "Light bulb icon representing AI-powered features" },
+  { text: "APIs", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon representing backend APIs" },
 ];
 
 const counterItems = [
   { value: 5, suffix: "+", label: "Years of Experience" },
-  { value: 6, suffix: "+", label: "Companies Worked At" },
-  { value: 20, suffix: "+", label: "Completed Projects" },
-  { value: 100, suffix: "%", label: "Commitment to Code Quality" },
+  { value: 20, suffix: "+", label: "Projects Delivered" },
+  { value: 6, suffix: "+", label: "Production Apps Shipped" },
+  { value: 4, suffix: "+", label: "Countries (Remote Teams)" },
 ];
 
+// Companies Rei has worked with — used as a social-proof marquee strip.
 const logoIconsList = [
-  {
-    imgPath: "/images/logos/company-logo-1.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-2.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-3.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-4.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-5.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-6.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-7.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-8.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-10.png",
-    alt: "Partner company logo",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
-    alt: "Partner company logo",
-  },
+  { imgPath: "/images/logo-fleet.svg", alt: "Fleet AI logo" },
+  { imgPath: "/images/logo-geeks5g.png", alt: "Geeks5G Marketing Agency logo" },
+  { imgPath: "/images/logo1.0.png", alt: "Blue Express logo" },
+  { imgPath: "/images/logo1.2.svg", alt: "Cuculi logo" },
+  { imgPath: "/images/logo1.3.png", alt: "Work2 Creative Agency logo" },
+  { imgPath: "/images/logo1.4.jpg", alt: "Henry coding bootcamp logo" },
 ];
 
 const abilities = [
@@ -105,19 +68,39 @@ const abilities = [
 
 const techStackImgs = [
   {
+    name: "React",
+    imgPath: "/images/logos/react.png",
+    alt: "React logo - JavaScript library for building user interfaces",
+  },
+  {
+    name: "Next.js",
+    imgPath: "/images/logos/nextjs.png",
+    alt: "Next.js logo - React framework for production",
+  },
+  {
+    name: "Node.js",
+    imgPath: "/images/logos/node.png",
+    alt: "Node.js logo - JavaScript runtime for server-side development",
+  },
+  {
     name: "TypeScript",
     imgPath: "/images/logos/typescript.png",
     alt: "TypeScript logo - typed superset of JavaScript",
   },
   {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
-    alt: "React logo - JavaScript library for building user interfaces",
-  },
-  {
-    name: "Mobile App Developer",
+    name: "React Native",
     imgPath: "/images/logos/react-native.svg",
     alt: "React Native logo - framework for building native mobile apps",
+  },
+  {
+    name: "Svelte 5",
+    imgPath: "/images/logos/svelte.svg",
+    alt: "Svelte logo - reactive UI framework",
+  },
+  {
+    name: "MCP · AI",
+    imgPath: "/images/logos/mcp.svg",
+    alt: "Model Context Protocol logo - connecting tools to AI models",
   },
   {
     name: "Tailwind CSS",
@@ -125,24 +108,19 @@ const techStackImgs = [
     alt: "Tailwind CSS logo - utility-first CSS framework",
   },
   {
-    name: "Next.js Developer",
-    imgPath: "/images/logos/nextjs.png",
-    alt: "Next.js logo - React framework for production",
-  },
-  {
-    name: "Backend Developer",
-    imgPath: "/images/logos/node.png",
-    alt: "Node.js logo - JavaScript runtime for server-side development",
-  },
-  {
-    name: "Interactive Developer",
+    name: "Three.js",
     imgPath: "/images/logos/three.png",
     alt: "Three.js logo - 3D graphics library for WebGL",
   },
   {
-    name: "Project Manager",
+    name: "Git",
     imgPath: "/images/logos/git.svg",
     alt: "Git logo - distributed version control system",
+  },
+  {
+    name: "Python",
+    imgPath: "/images/logos/python.svg",
+    alt: "Python logo - general-purpose programming language",
   },
 ];
 
@@ -179,13 +157,15 @@ const techStackIcons = [
   },
 ];
 
+// `impact` is a first-person, resume-style highlight (NOT a third-party quote).
 const expCards = [
   {
-    review:
-      "Rei brought senior-level ownership to our AI environment work — his MCP servers and deterministic state design set a high bar for how reliably we could train and evaluate agents.",
+    impact:
+      "Owned MCP server design and a deterministic SQLite/Drizzle state layer that made frontier-agent training and evaluation fully reproducible.",
     logoPath: "/images/logo-fleet.svg",
     logoAlt: "Fleet AI company logo",
     title: "Full Stack & AI Environment Developer",
+    company: "Fleet AI",
     date: "Dec 2025 – Jun 2026",
     responsibilities: [
       "Engineered deterministic “Fleet Environments” to train and evaluate frontier AI agents.",
@@ -194,11 +174,12 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Rei led complex frontend work across our SaaS and ERP platforms with speed and care, shipping AI-powered features and clean, maintainable architecture that scaled with the product.",
+    impact:
+      "Shipped AI-powered features and clean, scalable architecture across an all-in-one social-media SaaS and a corporate ERP.",
     logoPath: "/images/logo-geeks5g.png",
     logoAlt: "Geeks5G Marketing Agency company logo",
     title: "Frontend Web Developer",
+    company: "Geeks5G Marketing Agency",
     date: "May 2025 – Feb 2026",
     responsibilities: [
       "Built the frontend of an all-in-one social media management SaaS with Next.js.",
@@ -207,13 +188,14 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Reinaldo took ownership of key frontend components and helped improve the performance and scalability of our internal logistics platform. His technical contributions were key to our team's success.",
+    impact:
+      "Built and optimized real-time features for Blue Express's internal logistics platform, improving performance and reliability at scale.",
     imgPath: "/images/exp1.0.png",
     imgAlt: "Software development workspace with code editor and logistics dashboard",
     logoPath: "/images/logo1.0.png",
     logoAlt: "Blue Express company logo",
     title: "Software Developer",
+    company: "Kranio · Blue Express",
     date: "May 2022 – March 2025",
     responsibilities: [
       "Built web applications using React, Next.js, and TailwindCSS.",
@@ -222,12 +204,13 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Reinaldo's work on our mobile app improved user experience and reliability. His ability to build cross-platform features made a real difference for the product.",
+    impact:
+      "Shipped a cross-platform iOS/Android reservations app end to end, from concept to store maintenance.",
     // imgPath: "/images/exp2.png",
     logoPath: "/images/logo1.2.svg",
-    logoAlt: "Freelance client company logo",
-    title: "React Native Developer (Freelance)",
+    logoAlt: "Cuculi company logo",
+    title: "React Native Developer",
+    company: "Cuculi",
     date: "Nov 2023 – June 2024",
     responsibilities: [
       "Developed a mobile app for restaurant reservations and bill splitting.",
@@ -236,13 +219,14 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Reinaldo's attention to detail and ability to translate design into responsive code significantly enhanced our clients' web presence.",
+    impact:
+      "Translated designs into responsive, accessible interfaces that improved clients' web presence across devices.",
     imgPath: "/images/exp1.3.png",
     imgAlt: "Responsive web design mockups on multiple devices",
     logoPath: "/images/logo1.3.png",
-    logoAlt: "Web development agency company logo",
+    logoAlt: "Work2 Creative Agency company logo",
     title: "Frontend Web Developer",
+    company: "Work2 Creative Agency",
     date: "June 2021 – May 2022",
     responsibilities: [
       "Developed responsive interfaces with HTML, CSS, and JavaScript.",
@@ -251,13 +235,14 @@ const expCards = [
     ],
   },
   {
-    review:
-      "Reinaldo showed great commitment to mentoring junior developers. He encouraged collaboration and shared best practices with clarity and empathy.",
+    impact:
+      "Mentored student developers through an 800+ hour full-stack curriculum, leading code reviews and daily agile standups.",
     imgPath: "/images/exp1.4.png",
     imgAlt: "Collaborative coding session with teaching materials and students",
     logoPath: "/images/logo1.4.jpg",
-    logoAlt: "Coding bootcamp institution logo",
+    logoAlt: "Henry coding bootcamp logo",
     title: "Full-Stack Teaching Assistant",
+    company: "Henry",
     date: "Jan 2022 – Apr 2022",
     responsibilities: [
       "Guided students through the fundamentals of web development.",
@@ -299,12 +284,6 @@ const socialImgs = [
     imgPath: "/images/linkedin.png",
     url: "https://www.linkedin.com/in/reiorozco",
     alt: "LinkedIn social media icon",
-  },
-  {
-    name: "insta",
-    imgPath: "/images/insta.png",
-    url: "https://www.instagram.com/orozcorei",
-    alt: "Instagram social media icon",
   },
 ];
 

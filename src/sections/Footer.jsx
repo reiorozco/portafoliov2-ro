@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="flex flex-col justify-center">
-          <p>Terms & Conditions</p>
+          <p>Full Stack Engineer · Open to remote roles</p>
         </div>
 
         <div className="socials">
