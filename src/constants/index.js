@@ -28,13 +28,6 @@ const words = [
   { text: "APIs", imgPath: "/images/concepts.svg", alt: "Abstract shapes icon representing backend APIs" },
 ];
 
-const counterItems = [
-  { value: 5, suffix: "+", label: "Years of Experience" },
-  { value: 20, suffix: "+", label: "Projects Delivered" },
-  { value: 6, suffix: "+", label: "Production Apps Shipped" },
-  { value: 4, suffix: "+", label: "Countries (Remote Teams)" },
-];
-
 // Companies Rei has worked with — used as a social-proof marquee strip.
 const logoIconsList = [
   { imgPath: "/images/logo-fleet.svg", alt: "Fleet AI logo" },
@@ -269,7 +262,6 @@ const socialImgs = [
 export {
   words,
   logoIconsList,
-  counterItems,
   expCards,
   expLogos,
   testimonials,
