@@ -10,7 +10,7 @@ const TitleHeader = ({ title, sub }) => {
       )}
 
       <div>
-        <h2 className="font-semibold md:text-5xl text-3xl text-center">
+        <h2 className="display-type font-semibold md:text-5xl text-3xl text-center">
           {title}
         </h2>
       </div>

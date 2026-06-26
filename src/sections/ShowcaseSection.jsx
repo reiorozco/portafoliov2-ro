@@ -102,7 +102,7 @@ const AppShowcase = () => {
               <LazyImage src="/images/project1.0.png" alt="Screenshot of the Blue Express logistics platform showing a real-time tracking dashboard" />
             </div>
             <div className="text-content">
-              <h2>Internal Logistics Platform — Blue Express</h2>
+              <h2 className="display-type">Internal Logistics Platform — Blue Express</h2>
 
               <p className="text-white-50 md:text-xl">
                 A real-time tracking system built at Kranio with React, Next.js,
@@ -121,7 +121,7 @@ const AppShowcase = () => {
                 <div className={`image-wrapper ${project.bg}`}>
                   <LazyImage src={project.image} alt={project.imageAlt} />
                 </div>
-                <h2>{project.title}</h2>
+                <h2 className="display-type">{project.title}</h2>
                 <p className="text-white-50 md:text-sm">{project.description}</p>
                 <ProjectLinks
                   demoUrl={project.demoUrl}

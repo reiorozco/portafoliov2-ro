@@ -28,7 +28,10 @@ Tailwind v4 tokens (`@theme` in `src/index.css`) — these are the source of tru
 
 ## Typography
 
-- **Family:** `Mona Sans` (variable, weights 200–900, italic axis) — single family. *Known critique: one geometric sans gives no type personality; a distinctive display face for hero/section titles is the open opportunity (`/impeccable typeset`).*
+- **Families (paired on a personality-contrast axis):**
+  - **Display — `Bricolage Grotesque`** (variable, opsz 12–96, weights 500–800): hero headline + all section/card/role titles. Applied via the `.display-type` class (`font-optical-sizing: auto`, `letter-spacing: -0.02em`). Carries the "designed, not template" character; optically sized so it sharpens at the large hero size.
+  - **Body — `Mona Sans`** (variable 200–900, italic axis): everything else — paragraphs, labels, UI. Neutral humanist sans that lets the display lead.
+  - Both load with `font-display: swap`. Keep to these two families.
 - **Scale (fluid):** hero `~30px → 60px` (`.hero-text`); section titles `text-3xl → md:text-5xl`; experience role `text-3xl`; body `text-lg / md:text-xl`; captions `text-sm`.
 - **Weights:** semibold for headings, regular for body. Light type on dark → keep generous line-height.
 - **Hierarchy:** exactly one `<h1>` (hero). Section titles `<h2>`, item titles `<h3>`. No emoji kickers above headings (removed — read as template scaffolding).

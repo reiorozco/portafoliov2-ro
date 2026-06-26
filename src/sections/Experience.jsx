@@ -116,7 +116,7 @@ const Experience = () => {
                       </div>
 
                       <div>
-                        <h3 className="font-semibold text-3xl">{card.title}</h3>
+                        <h3 className="display-type font-semibold text-3xl">{card.title}</h3>
                         {card.company && (
                           <p className="mt-1 text-lg text-white font-medium">
                             {card.company}
