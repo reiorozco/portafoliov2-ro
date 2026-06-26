@@ -38,10 +38,7 @@ const TechStack = () => {
   return (
     <div id="skills" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
-        <TitleHeader
-          title="My Tech Stack"
-          sub="🛠️ The tools I build with"
-        />
+        <TitleHeader title="My Tech Stack" />
         <div className="tech-grid">
           {/* Loop through the techStackIcons array and create a component for each item. 
               The key is set to the name of the tech stack icon, and the classnames are set to 

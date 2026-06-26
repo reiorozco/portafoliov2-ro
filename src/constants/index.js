@@ -45,27 +45,6 @@ const logoIconsList = [
   { imgPath: "/images/logo1.4.jpg", alt: "Henry coding bootcamp logo" },
 ];
 
-const abilities = [
-  {
-    imgPath: "/images/seo.png",
-    title: "Clean & Scalable Code",
-    desc: "I write maintainable, scalable code using modern best practices to ensure long-term project health.",
-    alt: "SEO optimization icon representing clean and scalable code practices",
-  },
-  {
-    imgPath: "/images/chat.png",
-    title: "Team Collaboration",
-    desc: "I thrive in collaborative environments, contributing ideas and mentoring teammates when needed.",
-    alt: "Chat bubble icon representing team collaboration and communication",
-  },
-  {
-    imgPath: "/images/time.png",
-    title: "Continuous Learning",
-    desc: "Always improving through courses, certifications, and hands-on experimentation with new technologies.",
-    alt: "Clock icon representing continuous learning and growth mindset",
-  },
-];
-
 const techStackImgs = [
   {
     name: "React",
@@ -289,7 +268,6 @@ const socialImgs = [
 
 export {
   words,
-  abilities,
   logoIconsList,
   counterItems,
   expCards,
