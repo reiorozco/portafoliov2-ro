@@ -2,9 +2,12 @@ import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 
+import { useReducedMotion } from "../../../utils/motion";
+
 const Particles = ({ count: propCount = 200 }) => {
   const mesh = useRef();
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const reducedMotion = useReducedMotion();
 
   // Reduce particle count on mobile for better performance
   const count = isMobile ? Math.min(propCount, 30) : propCount;
@@ -25,8 +28,9 @@ const Particles = ({ count: propCount = 200 }) => {
   }, [count]);
 
   useFrame(() => {
-    // Early exit if mesh not ready
-    if (!mesh.current) return;
+    // Early exit if mesh not ready, or if the user prefers reduced motion
+    // (particles render but stay still).
+    if (!mesh.current || reducedMotion) return;
 
     const positions = mesh.current.geometry.attributes.position.array;
 

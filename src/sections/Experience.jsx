@@ -7,11 +7,15 @@ import GlowCard from "../components/GlowCard";
 import LazyImage from "../components/LazyImage";
 import { expCards } from "../constants";
 import { SCROLL_TRIGGER_CONFIG } from "../constants/config";
+import { prefersReducedMotion } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
   useGSAP(() => {
+    // Reduced motion: skip the reveal entirely; cards/text stay visible by default.
+    if (prefersReducedMotion()) return;
+
     // Set initial states explicitly to prevent layout shift
     gsap.set(".timeline-card", {
       xPercent: -100,

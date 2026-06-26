@@ -5,9 +5,11 @@ import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
 import { words } from "../constants";
+import { prefersReducedMotion } from "../utils/motion";
 
 const Hero = () => {
   useGSAP(() => {
+    if (prefersReducedMotion()) return; // headline is visible by default
     gsap.fromTo(
       ".hero-text .hero-line",
       { y: 50, opacity: 0 },

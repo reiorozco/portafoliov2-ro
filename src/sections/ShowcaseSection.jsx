@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import LazyImage from "../components/LazyImage";
+import { prefersReducedMotion } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,6 +77,8 @@ const AppShowcase = () => {
     // Ensure all elements are visible by default
     gsap.set(sectionRef.current, { opacity: 1 });
     gsap.set(".showcase-card", { opacity: 1, y: 0 });
+
+    if (prefersReducedMotion()) return; // cards already visible, skip reveal
 
     // Subtle reveal on scroll (cards stay visible even if it doesn't trigger)
     gsap.utils.toArray(".showcase-card").forEach((card) => {

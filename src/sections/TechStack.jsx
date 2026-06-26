@@ -5,10 +5,13 @@ import TitleHeader from "../components/TitleHeader";
 // import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 // import { techStackIcons } from "../constants";
 import { techStackImgs } from "../constants";
+import { prefersReducedMotion } from "../utils/motion";
 
 const TechStack = () => {
   // Animate the tech cards in the skills section
   useGSAP(() => {
+    if (prefersReducedMotion()) return; // cards visible by default, skip stagger
+
     // This animation is triggered when the user scrolls to the #skills wrapper
     // The animation starts when the top of the wrapper is at the center of the screen
     // The animation is staggered, meaning each card will animate in sequence

@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
 import { counterItems } from "../constants";
+import { prefersReducedMotion } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,18 @@ const AnimatedCounter = () => {
   const countersRef = useRef([]);
 
   useGSAP(() => {
+    // Reduced motion: show the final values immediately, no counting animation.
+    if (prefersReducedMotion()) {
+      countersRef.current.forEach((counter, index) => {
+        const numberElement = counter?.querySelector(".counter-number");
+        const item = counterItems[index];
+        if (numberElement && item) {
+          numberElement.textContent = `${item.value}${item.suffix}`;
+        }
+      });
+      return;
+    }
+
     // Small delay to ensure DOM is ready
     gsap.delayedCall(0.5, () => {
       countersRef.current.forEach((counter, index) => {
