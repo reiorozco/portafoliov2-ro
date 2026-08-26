@@ -14,7 +14,7 @@ Alcance aprobado: **P0 (credibilidad) + P1 (marca)**. P2 (pulido) queda listado 
 - **Skills** (`techStackImgs` + `TechStack.jsx`): labels corregidos (incl. Git, antes "Project Manager"); añadidos **Svelte 5** y **MCP · AI** (logos oficiales de simple-icons) + Python; título → "My Tech Stack".
 - **Hero**: headline "Shaping … Deliver Results" → **"I build {Web Apps/Mobile Apps/AI Features/APIs} that ship to production."**
 - Assets nuevos: `logos/svelte.svg`, `logos/mcp.svg`, `project1.3.png`.
-Relacionado: `002-marca-profesional.md` (fuente de verdad de marca) · `001-auditoria-github.md` (inventario de proyectos).
+Relacionado: `002-marca-profesional.md` (fuente de verdad de marca) · `../../specs/001-auditoria-github-publicos.md` (inventario de proyectos).
 Idioma del sitio: inglés. Sin firmas automáticas.
 
 ## Decisiones del usuario (registradas)
