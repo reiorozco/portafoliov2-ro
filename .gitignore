@@ -32,3 +32,9 @@ dist-ssr
 
 # Playwright MCP screenshots and debugging files
 .playwright-mcp/
+
+# Cursor local runtime (skills can be committed deliberately)
+.cursor/hooks.json
+
+# Impeccable session artifacts (critiques, live, hook cache)
+.impeccable/
