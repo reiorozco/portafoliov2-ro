@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Perf } from "r3f-perf";
 
 import { Room } from "./Room";
 import HeroLights from "./HeroLights";
@@ -18,7 +17,6 @@ import {
 
 const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: `(max-width: ${BREAKPOINTS.MOBILE}px)` });
-  const isTablet = useMediaQuery({ query: `(max-width: ${BREAKPOINTS.TABLET}px)` });
 
   return (
     <Canvas
@@ -36,18 +34,15 @@ const HeroExperience = () => {
       <ambientLight intensity={0.2} color="#1a1a40" />
       {/* Configure OrbitControls to disable panning and control zoom based on a device type */}
       <OrbitControls
-        enablePan={false} // Prevents panning of the scene
-        enableZoom={!isTablet} // Disables zoom on tablets
+        enablePan={false}
+        enableZoom={false}
         maxDistance={ORBIT_CONTROLS.MAX_DISTANCE}
         minDistance={ORBIT_CONTROLS.MIN_DISTANCE}
         minPolarAngle={ORBIT_CONTROLS.MIN_POLAR_ANGLE}
         maxPolarAngle={ORBIT_CONTROLS.MAX_POLAR_ANGLE}
       />
 
-      {/* Performance monitor (dev mode only) */}
-      {import.meta.env.DEV && <Perf position="top-left" />}
-
-      {/* Lights outside Suspense so EffectComposer can use them */}
+      {/* Lights */}
       <HeroLights />
       <Particles count={PARTICLES_CONFIG.COUNT} />
 

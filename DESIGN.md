@@ -21,7 +21,7 @@ Tailwind v4 tokens (`@theme` in `src/index.css`) — these are the source of tru
 | `--color-white-50` | `#d9ecff` | Primary light text (cool off-white) |
 | `--color-blue-50` | `#839cb5` | Muted captions / secondary labels |
 | `--color-blue-100` | `#2d2d38` | Secondary surface tint |
-| purple-500 | `#8338ec` | Primary accent (focus, links, mobile CTA) |
+| purple-500 | `#8338ec` | Spice only (3D pillow, rare emphasis) |
 | red | `#d90429` | Secondary accent (sparingly) |
 
 **Rules:** Accents are spice, not paint — purple/red appear at points of emphasis only, never as fills. Body text is `white-50` (cool off-white, not pure white) on near-black. Keep contrast ≥4.5:1. Avoid introducing new hues; the palette is deliberately narrow (anti-reference: "noisy").
@@ -40,22 +40,22 @@ Tailwind v4 tokens (`@theme` in `src/index.css`) — these are the source of tru
 
 - Single-column narrative scroll; one dominant idea per fold.
 - Horizontal padding utilities: `padding-x` (`px-5 md:px-10`), `padding-x-lg` (`px-5 md:px-20`), `section-padding` (adds `md:mt-40 mt-20`).
-- Grids: `grid-3-cols`, `grid-4-cols` (counters), `grid-12-cols` (contact). Showcase = 60/40 split (hero project + 3 side cards).
+- Grids: `grid-3-cols`, `grid-4-cols` (counters). Showcase = 60/40 (flagship + one production case). Contact is a single-column form.
 - Breakpoints: mobile-first; key jumps at `md` and `xl`.
 
 ## Components
 
 - **`card-border`** — `bg-black-100` + `1px` `black-50` border. The base surface; hairline over shadow. Never nest.
 - **`GlowCard`** — experience card with cursor-tracked conic glow (`--start` var). Holds a first-person impact line (not a fake testimonial).
-- **`cta-button`** — pill with a white circle that covers the label at rest and shrinks on hover; label flips `text-black → text-white-50` in sync. (Looks like low contrast to static scanners; verified correct in both states.)
-- **Project links** — `Live demo` (solid white) + `GitHub` (outline) on showcase cards.
-- **`tech-card`** — rounded tile, logo + label, hover bg sweep.
+- **`cta-button`** — dark control (`black-200`) with the full label visible at rest (`white-50`) and a hairline arrow disc. Hover lifts to `black-50`. Real `href` on in-page CTAs.
+- **Project links** — `Live demo` (solid white) + `GitHub` (outline) on showcase cards. Min height 44px.
+- **`tech-card`** — compact rounded tile, logo + label. Six items, 2/3 columns. No hover sweep, no grab cursor.
 
 ## Motion
 
-- **Library:** GSAP + `@gsap/react`, ScrollTrigger for scroll-linked reveals; React Three Fiber for the hero/contact 3D.
-- **Character:** one orchestrated entrance per section (staggered fade/slide), not fade-on-scroll everywhere. The 3D room is the signature motion.
-- **Gap:** no `prefers-reduced-motion` handling yet — add a reduced/disabled path for entrance animations and the 3D scene.
+- **Library:** GSAP + `@gsap/react`, ScrollTrigger for scroll-linked reveals; React Three Fiber for the **hero** 3D only.
+- **Character:** one orchestrated entrance per section (staggered fade/slide), not fade-on-scroll everywhere. The 3D room is the signature motion; it is lazy-loaded and must not block first paint.
+- **Reduced motion:** `prefers-reduced-motion` skips GSAP entrances, freezes CSS animation, and the particle loop respects the hook. The canvas may still mount.
 
 ## Imagery
 

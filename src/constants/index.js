@@ -40,6 +40,16 @@ const logoIconsList = [
 
 const techStackImgs = [
   {
+    name: "TypeScript",
+    imgPath: "/images/logos/typescript.png",
+    alt: "TypeScript logo - typed superset of JavaScript",
+  },
+  {
+    name: "Node.js",
+    imgPath: "/images/logos/node.png",
+    alt: "Node.js logo - JavaScript runtime for server-side development",
+  },
+  {
     name: "React",
     imgPath: "/images/logos/react.png",
     alt: "React logo - JavaScript library for building user interfaces",
@@ -50,21 +60,6 @@ const techStackImgs = [
     alt: "Next.js logo - React framework for production",
   },
   {
-    name: "Node.js",
-    imgPath: "/images/logos/node.png",
-    alt: "Node.js logo - JavaScript runtime for server-side development",
-  },
-  {
-    name: "TypeScript",
-    imgPath: "/images/logos/typescript.png",
-    alt: "TypeScript logo - typed superset of JavaScript",
-  },
-  {
-    name: "React Native",
-    imgPath: "/images/logos/react-native.svg",
-    alt: "React Native logo - framework for building native mobile apps",
-  },
-  {
     name: "Svelte 5",
     imgPath: "/images/logos/svelte.svg",
     alt: "Svelte logo - reactive UI framework",
@@ -73,59 +68,6 @@ const techStackImgs = [
     name: "MCP · AI",
     imgPath: "/images/logos/mcp.svg",
     alt: "Model Context Protocol logo - connecting tools to AI models",
-  },
-  {
-    name: "Tailwind CSS",
-    imgPath: "/images/logos/tailwindcss.png",
-    alt: "Tailwind CSS logo - utility-first CSS framework",
-  },
-  {
-    name: "Three.js",
-    imgPath: "/images/logos/three.png",
-    alt: "Three.js logo - 3D graphics library for WebGL",
-  },
-  {
-    name: "Git",
-    imgPath: "/images/logos/git.svg",
-    alt: "Git logo - distributed version control system",
-  },
-  {
-    name: "Python",
-    imgPath: "/images/logos/python.svg",
-    alt: "Python logo - general-purpose programming language",
-  },
-];
-
-const techStackIcons = [
-  {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Python Developer",
-    modelPath: "/models/python-transformed.glb",
-    scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
   },
 ];
 
@@ -266,7 +208,6 @@ export {
   expLogos,
   testimonials,
   socialImgs,
-  techStackIcons,
   techStackImgs,
   navLinks,
 };

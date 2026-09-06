@@ -8,12 +8,7 @@ import { Html } from "@react-three/drei";
 export default function CanvasLoader() {
   return (
     <Html center>
-      <div className="flex-center">
-        <div className="relative">
-          <div className="w-20 h-20 border-4 border-purple-500/20 border-t-purple-500 rounded-full animate-spin" />
-          <p className="text-white-50 mt-4 text-center">Loading 3D Scene...</p>
-        </div>
-      </div>
+      <p className="text-blue-50 text-sm">Loading scene…</p>
     </Html>
   );
 }

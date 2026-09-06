@@ -9,22 +9,25 @@ const LogoIcon = ({ icon }) => {
 };
 
 const LogoShowcase = () => (
-  <div className="md:my-20 my-10 relative">
-    <div className="gradient-edge" />
-    <div className="gradient-edge" />
+  <section className="md:my-20 my-10 relative" aria-label="Teams">
+    <p className="text-center text-sm text-blue-50 mb-8">Teams</p>
 
-    <div className="marquee h-52">
-      <div className="marquee-box md:gap-12 gap-5">
-        {logoIconsList.map((icon, index) => (
-          <LogoIcon key={index} icon={icon} />
-        ))}
+    <div className="relative">
+      <div className="gradient-edge" />
+      <div className="gradient-edge" />
 
-        {logoIconsList.map((icon, index) => (
-          <LogoIcon key={index} icon={icon} />
-        ))}
+      <div className="marquee h-36 md:h-44">
+        <div className="marquee-box md:gap-12 gap-5">
+          {logoIconsList.map((icon, index) => (
+            <LogoIcon key={`a-${icon.alt}-${index}`} icon={icon} />
+          ))}
+          {logoIconsList.map((icon, index) => (
+            <LogoIcon key={`b-${icon.alt}-${index}`} icon={icon} />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default LogoShowcase;

@@ -23,7 +23,10 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      // Fallback UI
+      if (this.props.fallback) {
+        return this.props.fallback;
+      }
+
       return (
         <div className="min-h-screen flex items-center justify-center bg-black-100 p-5">
           <div className="max-w-md w-full bg-black-200 rounded-lg p-8 text-center border border-white-800/20">

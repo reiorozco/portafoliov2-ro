@@ -16,6 +16,14 @@ body {
   font-family: "Mona Sans", sans-serif;
 }
 
+#work,
+#experience,
+#skills,
+#contact,
+#hero {
+  scroll-margin-top: 5.5rem;
+}
+
 section {
   width: 100dvw;
 }
@@ -107,11 +115,11 @@ section {
   }
 
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 mt-32 xl:mt-20 xl:h-dvh flex flex-col xl:flex-row xl:items-center items-stretch justify-center;
   }
 
   .hero-text {
-    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10;
     img {
       @apply size-8 md:size-10 object-contain;
     }
@@ -125,7 +133,7 @@ section {
   }
 
   .hero-3d-layout {
-    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+    @apply relative w-full min-h-[50vh] h-[50vh] xl:h-full xl:min-h-0 xl:w-[70%] xl:absolute xl:-top-20 xl:-right-20;
   }
 
   .navbar {
@@ -245,26 +253,22 @@ section {
   }
 
   .cta-button {
-    @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
-
-    .bg-circle {
-      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
-        w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
-        rounded-full bg-white-50 transition-all duration-500;
-    }
+    @apply min-h-11 px-5 py-3 rounded-lg bg-black-200 flex justify-center items-center gap-3 relative cursor-pointer;
 
     .text {
-      @apply uppercase md:text-lg text-black transition-all duration-500
-        group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
+      @apply uppercase md:text-lg text-white-50 relative z-10;
     }
 
     .arrow-wrapper {
-      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2 
-        -translate-y-1/2 flex justify-center items-center overflow-hidden;
+      @apply size-10 rounded-full border border-black-50 flex justify-center items-center shrink-0;
 
       img {
-        @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
+        @apply size-4;
       }
+    }
+
+    &:hover {
+      @apply bg-black-50;
     }
   }
 
@@ -288,6 +292,10 @@ section {
     @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
   }
 
+  .timeline-line {
+    @apply w-px h-full bg-black-50;
+  }
+
   .exp-card-wrapper {
     @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
   }
@@ -296,24 +304,20 @@ section {
     @apply w-36 h-full absolute bottom-0 z-20;
   }
 
-  .tech-card-animated-bg {
-    @apply absolute left-0 bottom-[-100%] w-full h-full bg-[#2D3240] group-hover:bottom-0 transition-all duration-700;
-  }
-
   .tech-card-content {
-    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10 group-hover:cursor-grab;
+    @apply flex flex-col items-center justify-center gap-3 py-8 px-4 relative z-10 min-h-0;
 
     & p {
-      @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-white-50 text-center;
+      @apply text-sm md:text-base font-medium text-white-50 text-center;
     }
   }
 
   .tech-grid {
-    @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
+    @apply grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-16;
   }
 
   .tech-icon-wrapper {
-    @apply flex justify-center items-center w-52 h-60 relative;
+    @apply flex justify-center items-center;
   }
 
   form {
@@ -325,14 +329,10 @@ section {
     textarea {
       @apply w-full px-4 py-4 md:text-base text-sm placeholder:text-blue-50 bg-blue-100 rounded-md;
     }
+  }
 
-    a {
-      @apply w-full py-4 bg-white text-black font-semibold rounded-md flex justify-center items-center gap-2;
-
-      img {
-        @apply inline-block;
-      }
-    }
+  .contact-mailto {
+    @apply text-white-50;
   }
 
   .footer {
@@ -350,11 +350,11 @@ section {
       @apply flex items-center justify-center gap-5;
 
       .icon {
-        @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
+        @apply border border-black-50 bg-black-100 flex items-center gap-2 rounded-xl px-3 py-2 min-h-11 text-sm text-white-50 cursor-pointer transition-all duration-300 hover:bg-black-50;
       }
 
       img {
-        @apply inline-block;
+        @apply size-5 inline-block;
       }
     }
   }
@@ -402,18 +402,6 @@ section {
 
 /* Hero Text slider ends */
 
-.gradient-line {
-  width: 2px;
-  background: linear-gradient(
-    0deg,
-    rgba(69, 222, 196, 0) 0%,
-    #fdff00 25%,
-    #fd5c79 37.51%,
-    #52aeff 62.83%,
-    #e736aa 92.91%
-  );
-}
-
 .gradient-edge:nth-of-type(1) {
   left: 0;
   background: rgb(0, 0, 0);
@@ -446,6 +434,9 @@ section {
   position: absolute;
   overflow: hidden;
   animation: marquee 60s linear infinite;
+}
+.marquee:hover .marquee-box {
+  animation-play-state: paused;
 }
 .marquee-item {
   float: left;

@@ -16,15 +16,12 @@ const Experience = lazy(() => import("./sections/Experience"));
 const TechStack = lazy(() => import("./sections/TechStack"));
 const Contact = lazy(() => import("./sections/Contact"));
 
-// Preload all 3D models for faster loading
-import "./utils/preloadAssets";
-
 const App = () => (
   <ErrorBoundary>
     {/* Skip to main content link for keyboard navigation */}
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-purple-500 focus:text-white focus:rounded"
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded"
     >
       Skip to main content
     </a>
@@ -32,7 +29,7 @@ const App = () => (
     <Navbar />
 
     <main id="main-content">
-      {/* Hero with 3D Canvas - wrapped for error isolation */}
+      {/* Hero — 3D is isolated inside the section */}
       <ErrorBoundary>
         <Hero />
       </ErrorBoundary>
@@ -58,7 +55,6 @@ const App = () => (
         </Suspense>
       </ErrorBoundary>
 
-      {/* Contact with 3D Canvas - wrapped for error isolation */}
       <ErrorBoundary>
         <Suspense fallback={<SectionLoader />}>
           <Contact />

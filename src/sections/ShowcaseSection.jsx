@@ -7,8 +7,6 @@ import { prefersReducedMotion } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Featured flagship — the open-source MCP server + Svelte playground that proves
-// the AI / MCP / Svelte side of the brand. Lives in the big hero slot.
 const featured = {
   title: "matchday-mcp",
   image: "/images/project-matchday.png",
@@ -22,46 +20,17 @@ const featured = {
   npmUrl: "https://www.npmjs.com/package/matchday-mcp",
 };
 
-// Compact projects in the right-hand column.
-const sideProjects = [
-  {
-    title: "Internal Logistics Platform — Blue Express",
-    image: "/images/project1.0.png",
-    imageAlt:
-      "Blue Express logistics platform showing a real-time tracking dashboard",
-    bg: "bg-black-100",
-    description:
-      "Real-time tracking built at Kranio (React, Next.js, Node.js, MongoDB) — live map tracking, barcode scanning, and incident reporting with Datadog observability.",
-    tags: ["React", "Next.js", "Node.js", "MongoDB"],
-    note: "Proprietary platform — not publicly available.",
-  },
-  {
-    title: "Project Manager",
-    image: "/images/project1.1.png",
-    imageAlt:
-      "Project Manager dashboard showing project summary cards and quick actions",
-    bg: "bg-[#EAF1FB]",
-    description:
-      "Full-stack project management dashboard with role-based access — Next.js, Prisma, and PostgreSQL.",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    demoUrl: "https://project-manager-app-cyan.vercel.app",
-    repoUrl: "https://github.com/reiorozco/project-manager-app",
-  },
-  {
-    title: "Issue Tracker",
-    image: "/images/project1.2.png",
-    imageAlt:
-      "Issue Tracker dashboard with issue counts, a bar chart, and a latest-issues list",
-    bg: "bg-[#F3F4F6]",
-    description:
-      "Full-stack issue tracking app with status dashboards and charts — Next.js, Prisma, and Recharts.",
-    tags: ["Next.js", "Prisma", "Recharts"],
-    demoUrl: "https://issue-tracker-app-blue.vercel.app",
-    repoUrl: "https://github.com/reiorozco/issuetracker-app",
-  },
-];
+const production = {
+  title: "Internal Logistics Platform — Blue Express",
+  image: "/images/project1.0.png",
+  imageAlt:
+    "Blue Express logistics platform showing a real-time tracking dashboard",
+  description:
+    "Real-time tracking built at Kranio (React, Next.js, Node.js, MongoDB) — live map tracking, barcode scanning, and incident reporting with Datadog observability.",
+  tags: ["React", "Next.js", "Node.js", "MongoDB"],
+  note: "Proprietary platform — not publicly available.",
+};
 
-// Backend proof — kept as a compact link instead of a full card.
 const backendProof = {
   label: "Vidly — REST API (Node, Express, JWT, Jest, CI & Swagger)",
   demoUrl: "https://vidly-app-six.vercel.app",
@@ -89,7 +58,7 @@ const ProjectLinks = ({ demoUrl, repoUrl, npmUrl, title }) => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open the live demo of ${title}`}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white-50 transition-colors"
+        className="inline-flex items-center justify-center gap-2 min-h-11 px-4 py-3 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white-50 transition-colors"
       >
         <img src="/images/arrow-right.svg" alt="" aria-hidden="true" className="size-4" />
         Live demo
@@ -101,7 +70,7 @@ const ProjectLinks = ({ demoUrl, repoUrl, npmUrl, title }) => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`View the source code of ${title} on GitHub`}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+        className="inline-flex items-center justify-center gap-2 min-h-11 px-4 py-3 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
       >
         <img src="/images/github.svg" alt="" aria-hidden="true" className="size-4" />
         GitHub
@@ -113,7 +82,7 @@ const ProjectLinks = ({ demoUrl, repoUrl, npmUrl, title }) => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`View ${title} on npm`}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+        className="inline-flex items-center justify-center gap-2 min-h-11 px-4 py-3 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
       >
         <img src="/images/npm.svg" alt="" aria-hidden="true" className="size-4" />
         npm
@@ -126,13 +95,11 @@ const AppShowcase = () => {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
-    // Ensure all elements are visible by default
     gsap.set(sectionRef.current, { opacity: 1 });
     gsap.set(".showcase-card", { opacity: 1, y: 0 });
 
-    if (prefersReducedMotion()) return; // cards already visible, skip reveal
+    if (prefersReducedMotion()) return;
 
-    // Subtle reveal on scroll (cards stay visible even if it doesn't trigger)
     gsap.utils.toArray(".showcase-card").forEach((card) => {
       gsap.from(card, {
         y: 20,
@@ -151,7 +118,6 @@ const AppShowcase = () => {
     <section id="work" ref={sectionRef} className="app-showcase" aria-label="Projects showcase">
       <div className="w-full">
         <div className="showcaselayout">
-          {/* Featured flagship: matchday-mcp (open-source MCP server + Svelte playground) */}
           <div className="first-project-wrapper showcase-card">
             <div className="image-wrapper featured-media">
               <LazyImage src={featured.image} alt={featured.imageAlt} />
@@ -170,29 +136,18 @@ const AppShowcase = () => {
           </div>
 
           <div className="project-list-wrapper">
-            {sideProjects.map((project) => (
-              <div className="project showcase-card" key={project.title}>
-                <div className={`image-wrapper ${project.bg}`}>
-                  <LazyImage src={project.image} alt={project.imageAlt} />
-                </div>
-                <h2 className="display-type">{project.title}</h2>
-                <p className="text-white-50 md:text-sm">{project.description}</p>
-                <Tags tags={project.tags} />
-                {project.note ? (
-                  <p className="text-white-50 text-sm italic mt-3">{project.note}</p>
-                ) : (
-                  <ProjectLinks
-                    demoUrl={project.demoUrl}
-                    repoUrl={project.repoUrl}
-                    title={project.title}
-                  />
-                )}
+            <div className="project showcase-card">
+              <div className="image-wrapper bg-black-100">
+                <LazyImage src={production.image} alt={production.imageAlt} />
               </div>
-            ))}
+              <h2 className="display-type">{production.title}</h2>
+              <p className="text-white-50 md:text-sm">{production.description}</p>
+              <Tags tags={production.tags} />
+              <p className="text-white-50 text-sm italic mt-3">{production.note}</p>
+            </div>
           </div>
         </div>
 
-        {/* Backend proof — Vidly kept as a compact link, not a full card */}
         <p className="text-white-50 text-sm md:text-base mt-12">
           Backend proof:{" "}
           <a

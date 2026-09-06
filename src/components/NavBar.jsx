@@ -45,7 +45,7 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner">
         <a href="#hero" className="logo">
-          Rei Orozco | RO
+          Rei Orozco
         </a>
 
         <nav className="desktop">
@@ -115,7 +115,7 @@ const NavBar = () => {
                 <a
                   href={link}
                   onClick={handleLinkClick}
-                  className="text-white text-2xl font-semibold hover:text-purple-500 transition-colors block"
+                  className="text-white text-2xl font-semibold hover:text-white-50 transition-colors block"
                 >
                   {name}
                 </a>
@@ -127,7 +127,7 @@ const NavBar = () => {
             <a
               href="#contact"
               onClick={handleLinkClick}
-              className="w-full py-4 px-6 bg-purple-500 hover:bg-purple-600 text-white text-center rounded-lg font-semibold transition-colors block"
+              className="w-full min-h-11 py-4 px-6 bg-white hover:bg-white-50 text-black text-center rounded-lg font-semibold transition-colors block"
             >
               Contact me
             </a>
