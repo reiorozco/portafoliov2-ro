@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "mona sans",
+        "createdAt": "2026-09-06T15:23:36.853Z",
+        "reason": "Same Mona Sans Google Fonts import; lowercase variant of the DESIGN.md body face. False positive."
+      }
+    ]
+  }
+}
